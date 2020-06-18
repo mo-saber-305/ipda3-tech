@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b7b98d74-24c5-45ce-a9b2-0d30ce9b704b" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="ProjectId" id="1cqrwlssD4obAitfT70J36bzSjH" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/dashboard/pages" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\projects\laravel-projects\ipda3-website\resources\views\dashboard\pages\settings" />
+      <recent name="E:\projects\laravel-projects\ipda3-website\resources\views\dashboard\pages\services" />
+      <recent name="E:\projects\laravel-projects\ipda3-website\resources\views\dashboard\pages" />
+      <recent name="E:\projects\laravel-projects\ipda3-website\resources\views\dashboard\includes" />
+      <recent name="E:\projects\laravel-projects\ipda3-website\app\Http\Controllers\Dashboard" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\projects\laravel-projects\ipda3-website\resources\views\dashboard\pages" />
+      <recent name="E:\projects\laravel-projects\ipda3-website\resources\views\dashboard\pages\clients" />
+      <recent name="E:\projects\laravel-projects\ipda3-website\database\migrations" />
+      <recent name="E:\projects\laravel-projects\ipda3-website\resources\views\dashboard\pages\projects" />
+      <recent name="E:\projects\laravel-projects\ipda3-website\public\plugin\3d-carousel" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b7b98d74-24c5-45ce-a9b2-0d30ce9b704b" name="Default Changelist" comment="" />
+      <created>1591267204916</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591267204916</updated>
+      <workItem from="1591267207795" duration="3305000" />
+      <workItem from="1591286590119" duration="1260000" />
+      <workItem from="1591534620120" duration="10109000" />
+      <workItem from="1591597955459" duration="10104000" />
+      <workItem from="1591631754071" duration="9810000" />
+      <workItem from="1591684365052" duration="33927000" />
+      <workItem from="1591772550828" duration="29289000" />
+      <workItem from="1591860649842" duration="19342000" />
+      <workItem from="1591901839043" duration="6858000" />
+      <workItem from="1591945437407" duration="31296000" />
+      <workItem from="1592031607875" duration="25289000" />
+      <workItem from="1592115904620" duration="23922000" />
+      <workItem from="1592206053382" duration="19212000" />
+      <workItem from="1592237480073" duration="13205000" />
+      <workItem from="1592291152888" duration="32459000" />
+      <workItem from="1592336433719" duration="5894000" />
+      <workItem from="1592380065897" duration="42480000" />
+      <workItem from="1592463293479" duration="16860000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>

@@ -1,0 +1,94 @@
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+body, html {
+    text-transform: capitalize;
+    font-family: $font-family-cairo;
+}
+
+//****************************************************************************************//
+//********************************* Dashboard page ***************************************//
+//****************************************************************************************//
+
+.navbar {
+    padding: 1rem;
+    .navbar-nav {
+        .nav-link {
+            font-size: 17px;
+            font-weight: 600;
+        }
+        .user-menu{
+            .user-image {
+                height: 40px;
+                margin-left: 5px;
+                width: 40px;
+            }
+            li.user-header {
+                background: #243142;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.main-sidebar {
+    .brand-link .brand-image {
+        margin-left: 0.5rem;
+        margin-right: 0.8rem;
+    }
+    .sidebar {
+        .user-panel .image {
+            padding-right: .8rem;
+            padding-left: 5px;
+        }
+        .nav-sidebar>.nav-item .nav-icon {
+            margin-left: .2rem;
+            margin-right: 0;
+        }
+    }
+}
+
+.content-wrapper .content-header h1 {
+    text-align: left;
+}
+
+//****************************************************************************************//
+//*********************************** main-content-card **********************************//
+//****************************************************************************************//
+
+.main-content-card {
+    .card-header {
+        color: #ffffff;
+        background-color: #243142;
+        .card-title {
+            float: right;
+            font-size: 25px;
+            margin-bottom: 0;
+        }
+    }
+    .card-tools {
+        float: left;
+        .btn-tool {
+            color: #ffffff;
+        }
+    }
+}
+
+
+
+
+// framework
+.special-heading {
+    padding-top: 40px;
+    position: relative;
+}
+.special-heading h2:before {
+    content: "";
+    position: absolute;
+    height: 50px;
+    top: 37px;
+    right: 0;
+    border-right: 4px solid #3aade6;
+}
