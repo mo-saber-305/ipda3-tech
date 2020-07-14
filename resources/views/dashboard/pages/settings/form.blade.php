@@ -1,8 +1,14 @@
 @extends("dashboard.layouts.dashboard")
 
-@section('page_title')
-    {{ isset($service) ? 'تعديل الاعدادات' : 'انشاء اعدادات جديده' }}
+@section('breadcrumb')
+    <ol class="breadcrumb ">
+        <li class="breadcrumb-item"><a href="{{ route('home') }}">الرئيسية</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('dashboard.settings.index') }}">الاعدادات</a></li>
+        <li class="breadcrumb-item active">تعديل الاعدادات</li>
+    </ol>
 @stop
+
+@section('page_title', 'تعديل الاعدادات')
 
 @section('style')
     <style>
@@ -19,7 +25,7 @@
                 <!-- Default box -->
                 <div class="card main-content-card">
                     <div class="card-header">
-                        <h3 class="card-title">{{ isset($setting) ? 'تعديل الاعدادات' : 'انشاء اعدادات جديده' }}</h3>
+                        <h3 class="card-title">تعديل الاعدادات</h3>
 
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -35,14 +41,38 @@
                             <div class="col-9">
                                 <div class="card mb-0">
                                     <div class="card-body">
-                                        <form action="{{ isset($setting) ? route('settings.update', $setting->id) : route('settings.store') }}"
+                                        <form action="{{ route('dashboard.settings.update', $setting->id) }}"
                                               method="post"
                                               enctype="multipart/form-data"
                                         >
                                             @csrf
-                                            @isset($setting)
-                                                @method('put')
-                                            @endisset
+                                            @method('put')
+
+                                            <div class="form-group">
+                                                <label for="facebook_link">لينك facebook</label>
+                                                <input type="text" name="facebook_link" id="facebook_link" class="form-control" placeholder="اكتب لينك facebook"
+                                                       aria-describedby="helpId" value="{{ $setting->facebook }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="twitter_link">لينك twitter</label>
+                                                <input type="text" name="twitter_link" id="twitter_link" class="form-control" placeholder="اكتب لينك twitter"
+                                                       aria-describedby="helpId" value="{{ $setting->twitter }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="instagram_link">لينك instagram</label>
+                                                <input type="text" name="instagram_link" id="instagram_link" class="form-control" placeholder="اكتب لينك instagram"
+                                                       aria-describedby="helpId" value="{{ $setting->instagram }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="linkedIn_link">لينك linkedIn</label>
+                                                <input type="text" name="linkedIn_link" id="linkedIn_link" class="form-control" placeholder="اكتب لينك linkedIn"
+                                                       aria-describedby="helpId" value="{{ $setting->linkedin }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="whatsApp_link">لينك whatsApp</label>
+                                                <input type="text" name="whatsApp_link" id="whatsApp_link" class="form-control" placeholder="اكتب لينك whatsApp"
+                                                       aria-describedby="helpId" value="{{ $setting->whatsapp }}">
+                                            </div>
 
                                             <div class="form-group">
                                                 <label for="slogan">محتوي slogan</label>
@@ -50,7 +80,7 @@
                                                     class="form-control @error('slogan') is-invalid @enderror"
                                                     name="slogan" id="slogan" rows="5"
                                                     placeholder="اكتب المحتوي ..."
-                                                >{{ isset($setting) ? $setting->slogan : old('slogan') }}</textarea>
+                                                >{{ $setting->slogan }}</textarea>
                                                 @error('slogan')
                                                 <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -71,12 +101,10 @@
                                                 @enderror
                                             </div>
 
-                                            @isset($setting)
-                                                <div class="form-group text-center">
-                                                    <img src="{{ asset('storage/' .$setting->intro_image) }}"
-                                                         style="max-width: 100%; max-height: 200px">
-                                                </div>
-                                            @endisset
+                                            <div class="form-group text-center col-6 m-auto">
+                                                <img src="{{ asset('storage/' .$setting->intro_image) }}"
+                                                     style="max-width: 100%; max-height: 200px">
+                                            </div>
 
                                             <div class="form-group">
                                                 <label for="header_logo">صورة header logo</label>
@@ -91,15 +119,13 @@
                                                 @enderror
                                             </div>
 
-                                            @isset($setting)
-                                                <div class="form-group text-center">
-                                                    <img src="{{ asset('storage/' .$setting->header_logo) }}"
-                                                         style="max-width: 100%; max-height: 200px">
-                                                </div>
-                                            @endisset
+                                            <div class="form-group text-center col-6 m-auto">
+                                                <img src="{{ asset('storage/' .$setting->header_logo) }}"
+                                                     style="max-width: 100%; max-height: 200px">
+                                            </div>
 
                                             <div class="form-group">
-                                                <label for="footer_logo">صورة header logo</label>
+                                                <label for="footer_logo">صورة footer logo</label>
                                                 <input type="file"
                                                        class="form-control-file @error('footer_logo') is-invalid @enderror"
                                                        name="footer_logo" id="footer_logo"
@@ -111,17 +137,13 @@
                                                 @enderror
                                             </div>
 
-                                            @isset($setting)
-                                                <div class="form-group text-center">
-                                                    <img src="{{ asset('storage/' .$setting->footer_logo) }}"
-                                                         style="max-width: 100%; max-height: 200px">
-                                                </div>
-                                            @endisset
+                                            <div class="form-group text-center col-6 m-auto">
+                                                <img src="{{ asset('storage/' .$setting->footer_logo) }}"
+                                                     style="max-width: 100%; max-height: 200px">
+                                            </div>
 
                                             <div class="form-group mb-0 text-center">
-                                                <button type="submit" class="btn btn-primary @isset($setting) btn-success @endisset">
-                                                    {{ isset($setting) ? 'تعديل الاعدادات' : 'انشاء الاعدادات' }}
-                                                </button>
+                                                <button type="submit" class="btn btn-success">تعديل الاعدادات</button>
                                             </div>
                                         </form>
                                     </div>

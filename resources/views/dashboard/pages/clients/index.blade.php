@@ -1,5 +1,12 @@
 @extends("dashboard.layouts.dashboard")
 
+@section('breadcrumb')
+    <ol class="breadcrumb ">
+        <li class="breadcrumb-item"><a href="{{ route('home') }}">الرئيسية</a></li>
+        <li class="breadcrumb-item active">العملاء</li>
+    </ol>
+@stop
+
 @section('page_title', 'العملاء')
 
 @section('style')
@@ -44,18 +51,25 @@
                     <div class="card-body">
                         @include("dashboard.includes.messages")
                         @if(count($clients))
-                            <a class="btn btn-primary mb-3" href="{{ route('projects.create') }}" role="button">
-                                <i class="fas fa-plus"></i>
-                                انشاء عميل جديد
-                            </a>
+                            @if (auth()->user()->hasPermission('create-clients'))
+                                <a class="btn btn-primary mb-3" href="{{ route('dashboard.clients.create') }}" role="button">
+                                    <i class="fas fa-plus"></i>
+                                    انشاء عميل جديد
+                                </a>
+                            @else
+                                <a class="btn btn-primary disabled" href="#" role="button">
+                                    <i class="fas fa-plus"></i>
+                                    انشاء عميل جديد
+                                </a>
+                            @endif
                             <table class="table table-bordered text-center">
                                 <thead class="thead-dark">
-                                <tr class="d-flex">
-                                    <th class="col-1">#</th>
-                                    <th class="col-4">الاسم</th>
-                                    <th class="col-4">الصوره</th>
-                                    <th class="col-3">التفاصيل</th>
-                                </tr>
+                                    <tr class="d-flex">
+                                        <th class="col-1">#</th>
+                                        <th class="col-4">الاسم</th>
+                                        <th class="col-4">الصوره</th>
+                                        <th class="col-3">اكشن</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($clients as $client)
@@ -65,54 +79,37 @@
                                             <h5 class="mb-0 text-bold">{{$client->name}}</h5>
                                         </td>
                                         <td class="col-4">
-                                            <img src="{{asset('storage/' .$client->image)}}">
+                                            <img src="{{asset('storage/' .$client->image)}}" height="80">
                                         </td>
                                         <td class="col-3">
-                                            <a class="btn btn-success mx-3"
-                                               href="{{ route('clients.edit', $client->id) }}"
-                                               role="button" data-toggle="tooltip"
-                                               data-placement="top" title="تعديل العميل"
-                                            >
-                                                <i class="fas fa-edit"></i>
-                                            </a>
 
-                                            <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-danger "
-                                                    data-toggle="modal" data-target="#exampleModal"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top" title="حذف المشروع"
-                                            >
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">
-                                                                <strong>تحذير هام</strong>
-                                                            </h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <h4 class="mb-0">
-                                                                سوف يتم حذف العميل نهائيا <br>
-                                                                هل انت متأكد إنك تريد حذف العميل ؟
-                                                            </h4>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-primary" data-dismiss="modal">إلغاء</button>
-                                                            <form action="{{ route('clients.destroy', $client->id) }}" method="post" class="mb-0">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <button type="submit" class="btn btn-danger">حذف</button>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @if (auth()->user()->hasPermission('update-clients'))
+                                                <a class="btn btn-success mx-3"
+                                                   href="{{ route('dashboard.clients.edit', $client->id) }}"
+                                                   role="button" data-tooltip="tooltip"
+                                                   data-placement="top" title="تعديل العميل"
+                                                >
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                            @else
+                                                <button class="btn btn-success mx-3 disabled">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            @endif
+                                            @if (auth()->user()->hasPermission('delete-clients'))
+                                                <form action="{{ route('dashboard.clients.destroy', $client->id) }}" method="post" class="mb-0">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger" data-tooltip="tooltip"
+                                                            data-placement="top" title="حذف العميل">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            @else
+                                                <button class="btn btn-danger disabled">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
@@ -125,10 +122,18 @@
                                 <h3 class="mb-3">
                                     لا يوجد عملاء حاليا
                                 </h3>
-                                <a class="btn btn-primary" href="{{ route('clients.create') }}" role="button">
-                                    <i class="fas fa-plus"></i>
-                                    انشاء عميل جديد
-                                </a>
+
+                                @if (auth()->user()->hasPermission('create-clients'))
+                                    <a class="btn btn-primary" href="{{ route('dashboard.clients.create') }}" role="button">
+                                        <i class="fas fa-plus"></i>
+                                        انشاء عميل جديد
+                                    </a>
+                                @else
+                                    <a class="btn btn-primary disabled" href="#" role="button">
+                                        <i class="fas fa-plus"></i>
+                                        انشاء عميل جديد
+                                    </a>
+                                @endif
                             </div>
                         @endif
                     </div>
@@ -145,7 +150,15 @@
 @section('script')
     <script>
         $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
+            $('[data-tooltip="tooltip"]').tooltip();
+            $('table[data-form="deleteForm"]').on('click', '.form-delete', function(e){
+                e.preventDefault();
+                var $form=$(this);
+                $('#confirm').modal({ backdrop: 'static', keyboard: false })
+                    .on('click', '#delete-btn', function(){
+                        $form.submit();
+                    });
+            });
         })
     </script>
 @endsection

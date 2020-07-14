@@ -26,9 +26,9 @@ class CreateProjectRequest extends FormRequest
         return [
             'title'=> 'required|unique:articles',
             'content'=> 'required',
-            'image'=> 'required|image|jpeg,png,bmp,gif,svg,webp',
-            'cover_image'=> 'required|image|jpeg,png,bmp,gif,svg,webp',
-            'project_images'=> 'required|image|mimes:jpeg,png,bmp,gif,svg,webp',
+            'image'=> 'required|image|mimes:jpeg,png,bmp,gif,svg,webp',
+            'cover_image'=> 'required|image|mimes:jpeg,png,bmp,gif,svg,webp',
+            'project_images'=> 'required',
         ];
     }
 

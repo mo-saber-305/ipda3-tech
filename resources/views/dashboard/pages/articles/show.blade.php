@@ -1,5 +1,13 @@
 @extends("dashboard.layouts.dashboard")
 
+@section('breadcrumb')
+    <ol class="breadcrumb ">
+        <li class="breadcrumb-item"><a href="{{ route('home') }}">الرئيسية</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('dashboard.articles.index') }}">المقالات</a></li>
+        <li class="breadcrumb-item active">تفاصيل المقالة</li>
+    </ol>
+@stop
+
 @section('page_title', 'تفاصيل المقالة')
 
 @section('style')
@@ -50,16 +58,16 @@
                                 <div class="card article-show-card text-center my-4 py-5 px-sm-3 hvr-glow">
                                     <div class="header-card d-flex justify-content-center mb-4">
                                         <div class="col-sm-12 col-md-10 col-lg-7">
-                                            <img class="card-img-top hvr-glow" src="{{ asset('storage/' .$article->image) }}" >
+                                            <img class="card-img-top hvr-glow" src="{{ asset('storage/' .$article->image) }}" alt="...">
                                         </div>
                                     </div>
                                     <h3 class="font-weight-bold">{{ $article->title }}</h3>
                                     <h4 class="card-title">{{ $article->content }}</h4>
 
                                     <span class="badge badge-dark">
-                                    {{ $article->views }}
-                                    <i class="fas fa-eye"></i>
-                                </span>
+                                        {{ $article->views }}
+                                        <i class="fas fa-eye"></i>
+                                    </span>
                                 </div>
                             </div>
                         </div>

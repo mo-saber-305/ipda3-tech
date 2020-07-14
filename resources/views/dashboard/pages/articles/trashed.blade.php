@@ -1,11 +1,23 @@
 @extends("dashboard.layouts.dashboard")
 
+@section('breadcrumb')
+    <ol class="breadcrumb ">
+        <li class="breadcrumb-item"><a href="{{ route('home') }}">الرئيسية</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('dashboard.articles.index') }}">المقالات</a></li>
+        <li class="breadcrumb-item active">المقالات المحذوفه</li>
+    </ol>
+@stop
+
+
 @section('page_title', 'المقالات المحذوفه')
 
 @section('style')
     <style>
-        .btn-info {
+        .content .index-article .card .card-body .table tbody tr > td .btn-info {
             margin-left: 10px;
+        }
+        .content .index-article .card .card-body .table tbody tr > td .badge {
+            padding: 7px 10px;
         }
     </style>
 @stop
@@ -30,70 +42,42 @@
                     <div class="card-body">
                         @include("dashboard.includes.messages")
                         @if(count($trashes))
-                            <div class="col-12">
-                                <table class="table table-bordered text-center">
+                            <div class="table-responsive">
+                                <table class="table table-bordered text-center mb-0">
                                     <thead class="thead-dark">
                                     <tr class="d-flex">
-                                        <th class="col-1">#</th>
-                                        <th class="col-5">العنوان</th>
-                                        <th class="col-2">الصوره</th>
-                                        <th class="col-2">المشاهدات</th>
-                                        <th class="col-2">التفاصيل</th>
+                                        <th class="col-sm-1">#</th>
+                                        <th class="col-sm-4">العنوان</th>
+                                        <th class="col-sm-2">الصوره</th>
+                                        <th class="col-sm-2">المشاهدات</th>
+                                        <th class="col-sm-3">التفاصيل</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($trashes as $trash)
                                         <tr class="d-flex">
-                                            <td class="col-1"><strong>{{$loop->iteration}}</strong></td>
-                                            <td class="col-5">
+                                            <td class="col-sm-1"><strong>{{$loop->iteration}}</strong></td>
+                                            <td class="col-sm-4">
                                                 <h5 class="mb-0 text-bold">{{$trash->title}}</h5>
                                             </td>
-                                            <td class="col-2">
-                                                <img src="{{asset('storage/' .$trash->image)}}" alt="...">
+                                            <td class="col-sm-2">
+                                                <img src="{{asset('storage/' .$trash->image)}}" alt="..." style="max-width: 100%" height="80">
                                             </td>
-                                            <td class="col-2"><span class="badge bg-dark">{{$trash->views}}</span></td>
-                                            <td class="col-2">
-                                                <a class="btn btn-info" href="{{ route('trashed.restore', $trash->id) }}" role="button"
-                                                    data-tooltip="tooltip" data-placement="top" title="استعادة المقاله">
+                                            <td class="col-sm-2"><span class="badge bg-dark">{{$trash->views}}</span></td>
+                                            <td class="col-sm-3">
+                                                <a class="btn btn-info" href="{{ route('dashboard.trashed.restore', $trash->id) }}" role="button"
+                                                   data-tooltip="tooltip" data-placement="top" title="استعادة المقاله">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
-                                                <!-- Button trigger modal -->
-                                                <button type="button" class="btn btn-danger "
-                                                        data-toggle="modal" data-target="#exampleModal"
-                                                        data-tooltip="tooltip"
-                                                        data-placement="top" title="حذف المقاله"
-                                                >
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                                <!-- Modal -->
-                                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">
-                                                                    <strong>تحذير هام</strong>
-                                                                </h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <h4 class="mb-0">
-                                                                    سوف يتم حذف المقالة نهائيا <br>
-                                                                    هل انت متأكد إنك تريد حذف المقالة ؟
-                                                                </h4>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-primary" data-dismiss="modal">إلغاء</button>
-                                                                <form action="{{ route('articles.destroy', $trash->id) }}" method="post" class="mb-0">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button type="submit" class="btn btn-danger">حذف</button>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+
+                                                <form action="{{ route('dashboard.articles.destroy', $trash->id) }}" method="post" class="mb-0">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger" data-tooltip="tooltip"
+                                                            data-placement="top" title="حذف المقاله">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -116,12 +100,5 @@
     <!-- /.content -->
 @endsection
 
-@section('script')
-    <script>
-        $(function () {
-            $('[data-tooltip="tooltip"]').tooltip()
-        })
-    </script>
-@endsection
 
 

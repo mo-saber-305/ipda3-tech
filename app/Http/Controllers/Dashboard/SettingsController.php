@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Storage;
 
 class SettingsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:read-settings'])->only('index');
+        $this->middleware(['permission:update-settings'])->only('edit');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,45 +28,6 @@ class SettingsController extends Controller
         return view('dashboard.pages.settings.index', compact('settings'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('dashboard.pages.settings.form');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(CreateSettingsRequest $request)
-    {
-        Setting::create([
-            'slogan' => $request->input('slogan'),
-            'intro_image' => $request->file('intro_image')->store('images/settings', 'public'),
-            'header_logo' => $request->file('header_logo')->store('images/settings', 'public'),
-            'footer_logo' => $request->file('footer_logo')->store('images/settings', 'public'),
-        ]);
-
-        session()->flash('success', 'تم انشاء الاعدادات بنجاح');
-        return redirect(route('settings.index'));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Setting  $setting
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Setting $setting)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -82,7 +49,7 @@ class SettingsController extends Controller
      */
     public function update(EditSettingsRequest $request, Setting $setting)
     {
-        $data = $request->only('slogan');
+        $data = $request->except(['intro_image', 'header_logo', 'footer_logo']);
 
         if ($request->hasFile('intro_image')) {
             Storage::disk('public')->delete($setting->intro_image);
@@ -103,24 +70,7 @@ class SettingsController extends Controller
 
         session()->flash('success', 'تم تعديل الاعدادات بنجاح');
 
-        return redirect(route('settings.index'));
+        return redirect(route('dashboard.settings.index'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Setting  $setting
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Setting $setting)
-    {
-        Storage::disk('public')->delete($setting->intro_image);
-        Storage::disk('public')->delete($setting->header_logo);
-        Storage::disk('public')->delete($setting->footer_logo);
-        $setting->delete();
-
-        session()->flash('error', 'تم حذف الاعدادات بنجاح');
-
-        return redirect(route('settings.index'));
-    }
 }

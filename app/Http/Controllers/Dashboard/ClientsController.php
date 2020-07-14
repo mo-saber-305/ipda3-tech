@@ -49,7 +49,7 @@ class ClientsController extends Controller
 
         session()->flash('success', 'تم انشاء العميل بنجاح');
 
-        return redirect(route('clients.index'));
+        return redirect(route('dashboard.clients.index'));
     }
 
     /**
@@ -95,7 +95,7 @@ class ClientsController extends Controller
 
         session()->flash('success', 'تم تعديل بيانات العميل بنجاح');
 
-        return redirect(route('clients.index'));
+        return redirect(route('dashboard.clients.index'));
     }
 
     /**
@@ -111,8 +111,8 @@ class ClientsController extends Controller
 
         $client->delete();
 
-        session()->flash('success', 'تم حذف العميل بنجاح');
+        session()->flash('error', 'تم حذف العميل بنجاح');
 
-        return redirect(route('clients.index'));
+        return redirect(route('dashboard.clients.index'));
     }
 }

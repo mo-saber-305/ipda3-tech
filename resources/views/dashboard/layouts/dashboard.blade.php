@@ -14,12 +14,14 @@
         <link rel="stylesheet" href="{{ asset('plugin/hover/hover-min.css') }}">
         <!-- Theme style -->
         <link rel="stylesheet" href="{{ asset('adminlte/css/adminlte.min.css') }}">
+        <!-- i-check style -->
+        <link rel="stylesheet" href="{{ asset('adminlte/plugins/icheck-bootstrap/blue.css') }}">
         <!-- overlayScrollbars -->
         <link rel="stylesheet" href="{{ asset('adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
-        <!-- Bootstrap 4 RTL -->
-        <link rel="stylesheet" href="{{ asset('adminlte/css/bootstrap-rtl/bootstrap-rtl.min.css') }}">
         <!-- Custom style for RTL -->
         <link rel="stylesheet" href="{{ asset('adminlte/css/custom.css') }}">
+        <!-- Bootstrap 4 RTL -->
+        <link rel="stylesheet" href="{{ asset('adminlte/css/bootstrap-rtl/bootstrap-rtl.min.css') }}">
         <!-- App style -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         @yield('style')
@@ -29,18 +31,6 @@
     <!-- Authentication Links -->
     @guest
         <div id="app">
-            <nav class="navbar navbar-expand navbar-light bg-white">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    </li>
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
-                </ul>
-            </nav>
             <main class="py-4">
                 @yield('content')
             </main>
@@ -48,6 +38,7 @@
     @else
         <div class="wrapper">
             @include("dashboard.includes.navbar")
+
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper" style="min-height: 1030.69px;">
                 <!-- Content Header (Page header) -->
@@ -55,10 +46,7 @@
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <ol class="breadcrumb ">
-                                    <li class="breadcrumb-item"><a href="#">الرئيسية</a></li>
-                                    <li class="breadcrumb-item active">@yield('page_title')</li>
-                                </ol>
+                                @yield('breadcrumb')
                             </div>
                             <div class="col-sm-6">
                                 <h1>@yield('page_title')</h1>
@@ -71,10 +59,10 @@
             </div>
             <!-- /.content-wrapper -->
             <footer class="main-footer bg-dark">
-                <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
-                All rights reserved.
+                <strong>Copyright &copy; {{ date('Y') }} <a href="#">mo saber</a> .</strong>
+                All rights reserved
                 <div class="float-right d-none d-sm-inline-block">
-                    <b>Version</b> 3.0.0-rc.1
+                    <b>ipda3 tech</b>
                 </div>
             </footer>
         </div>
@@ -90,9 +78,17 @@
     <script src="{{ asset('adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('adminlte/js/adminlte.min.js') }}"></script>
+    <!-- 3d-carousel -->
     <script src="{{ asset('plugin/3d-carousel/jquery.waterwheelCarousel.min.js') }}"></script>
+    <!-- i-check -->
+    <script src="{{ asset('adminlte/plugins/icheck-bootstrap/icheck.min.js') }}"></script>
     <!-- scripts for admin pages -->
     <script src="{{ asset('js/dashboard.js') }}"></script>
+    <script>
+        $(function () {
+            $('[data-tooltip="tooltip"]').tooltip()
+        });
+    </script>
     @yield('script')
 </body>
 </html>

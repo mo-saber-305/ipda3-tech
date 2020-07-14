@@ -14,6 +14,14 @@ use Illuminate\Support\Str;
 
 class ProjectsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:create-projects'])->only('create');
+        $this->middleware(['permission:read-projects'])->only('index');
+        $this->middleware(['permission:update-projects'])->only('edit');
+        $this->middleware(['permission:delete-projects'])->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -66,7 +74,7 @@ class ProjectsController extends Controller
                 ]);
             }
         }
-        return redirect(route('projects.index'));
+        return redirect(route('dashboard.projects.index'));
     }
 
     /**
@@ -143,7 +151,7 @@ class ProjectsController extends Controller
 
         session()->flash('success', 'تم تعديل المشروع بنجاح');
 
-        return redirect(route('projects.index'));
+        return redirect(route('dashboard.projects.index'));
     }
 
     /**
@@ -170,6 +178,6 @@ class ProjectsController extends Controller
         $project->delete();
 
         session()->flash('error', 'تم حذف المشروع بنجاح');
-        return redirect(route('projects.index'));
+        return redirect(route('dashboard.projects.index'));
     }
 }

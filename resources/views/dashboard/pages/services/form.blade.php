@@ -1,5 +1,15 @@
 @extends("dashboard.layouts.dashboard")
 
+@section('breadcrumb')
+    <ol class="breadcrumb ">
+        <li class="breadcrumb-item"><a href="{{ route('home') }}">الرئيسية</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('dashboard.services.index') }}">الخدمات</a></li>
+        <li class="breadcrumb-item active">
+            {{ isset($service) ? 'تعديل الخدمة' : 'انشاء خدمة جديده' }}
+        </li>
+    </ol>
+@stop
+
 @section('page_title')
     {{ isset($service) ? 'تعديل الخدمة' : 'انشاء خدمة جديده' }}
 @stop
@@ -35,7 +45,7 @@
                             <div class="col-9">
                                 <div class="card mb-0">
                                     <div class="card-body">
-                                        <form action="{{ isset($service) ? route('services.update', $service->id) : route('services.store') }}"
+                                        <form action="{{ isset($service) ? route('dashboard.services.update', $service->id) : route('dashboard.services.store') }}"
                                               method="post"
                                               enctype="multipart/form-data"
                                         >
@@ -97,8 +107,6 @@
                                                     >
                                                         اخفاء الخدمة
                                                     </option>
-
-{{--                                                    {{ boolval() }}--}}
                                                 </select>
                                             </div>
 

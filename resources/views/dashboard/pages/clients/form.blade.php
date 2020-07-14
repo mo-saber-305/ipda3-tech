@@ -1,15 +1,17 @@
 @extends("dashboard.layouts.dashboard")
 
-@section('page_title')
-    {{ isset($client) ? 'تعديل بيانات العميل' : 'انشاء عميل جديد' }}
+@section('breadcrumb')
+    <ol class="breadcrumb ">
+        <li class="breadcrumb-item"><a href="{{ route('home') }}">الرئيسية</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('dashboard.clients.index') }}">العملاء</a></li>
+        <li class="breadcrumb-item active">
+            {{ isset($client) ? 'تعديل بيانات العميل' : 'انشاء عميل جديد' }}
+        </li>
+    </ol>
 @stop
 
-@section('style')
-    <style>
-        .content form .form-control.is-invalid {
-            padding-right: 12px;
-        }
-    </style>
+@section('page_title')
+    {{ isset($client) ? 'تعديل بيانات العميل' : 'انشاء عميل جديد' }}
 @stop
 
 @section('dashboard-content')
@@ -35,7 +37,7 @@
                             <div class="col-9">
                                 <div class="card mb-0">
                                     <div class="card-body">
-                                        <form action="{{ isset($client) ? route('clients.update', $client->id) : route('clients.store') }}"
+                                        <form action="{{ isset($client) ? route('dashboard.clients.update', $client->id) : route('dashboard.clients.store') }}"
                                               method="post"
                                               enctype="multipart/form-data"
                                         >

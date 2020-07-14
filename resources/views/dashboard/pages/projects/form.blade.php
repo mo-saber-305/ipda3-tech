@@ -1,15 +1,17 @@
 @extends("dashboard.layouts.dashboard")
 
-@section('page_title')
-    {{ isset($project) ? 'تعديل المشروع' : 'انشاء مشروع جديد' }}
+@section('breadcrumb')
+    <ol class="breadcrumb ">
+        <li class="breadcrumb-item"><a href="{{ route('home') }}">الرئيسية</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('dashboard.projects.index') }}">المشاريع</a></li>
+        <li class="breadcrumb-item active">
+            {{ isset($project) ? 'تعديل المشروع' : 'انشاء مشروع جديد' }}
+        </li>
+    </ol>
 @stop
 
-@section('style')
-    <style>
-        .content form .form-control.is-invalid {
-            padding-right: 12px;
-        }
-    </style>
+@section('page_title')
+    {{ isset($project) ? 'تعديل المشروع' : 'انشاء مشروع جديد' }}
 @stop
 
 @section('dashboard-content')
@@ -35,7 +37,7 @@
                             <div class="col-9">
                                 <div class="card mb-0">
                                     <div class="card-body">
-                                        <form action="{{ isset($project) ? route('projects.update', $project->id) : route('projects.store') }}"
+                                        <form action="{{ isset($project) ? route('dashboard.projects.update', $project->id) : route('dashboard.projects.store') }}"
                                               method="post"
                                               enctype="multipart/form-data"
                                         >

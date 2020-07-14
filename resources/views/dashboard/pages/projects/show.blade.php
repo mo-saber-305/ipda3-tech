@@ -1,5 +1,13 @@
 @extends("dashboard.layouts.dashboard")
 
+@section('breadcrumb')
+    <ol class="breadcrumb ">
+        <li class="breadcrumb-item"><a href="{{ route('home') }}">الرئيسية</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('dashboard.projects.index') }}">المشاريع</a></li>
+        <li class="breadcrumb-item active">تفاصيل المشروع</li>
+    </ol>
+@stop
+
 @section('page_title', 'تفاصيل المشروع')
 
 @section('style')
@@ -59,7 +67,7 @@
                     <div class="card-body">
                         <div class="project-show">
                             <div class="special-heading">
-                                <h2>تطبيق وان</h2>
+                                <h2>{{ $project->title }}</h2>
                             </div>
                             <div class="project-header">
                                 <div class="row justify-content-center">
@@ -74,7 +82,7 @@
                             </div>
                             <div class="project-details mt-5 py-5">
                                 <div class="container-fluid">
-                                    <h5 class="text-center">لوريم إيبسوم (Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف. خمسة قرون من الزمن لم تقضي على هذا النص، بل انه حتى صار مستخدماً وبشكله الأصلي في الطباعة والتنضيد الإلكتروني. انتشر بشكل كبير في ستينيّات هذا القرن مع إصدار رقائق "ليتراسيت" (Letraset) البلاستيكية تحوي مقاطع من هذا النص، وعاد لينتشر مرة أخرى مؤخراَ مع ظهور برامج النشر الإلكتروني مثل "ألدوس بايج مايكر" (Aldus PageMaker) والتي حوت أيضاً على نسخ من نص لوريم إيبسوم.</h5>
+                                    <h5 class="text-center">{{ $project->content }}</h5>
                                 </div>
                             </div>
 

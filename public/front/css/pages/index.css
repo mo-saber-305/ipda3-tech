@@ -1,0 +1,350 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    text-transform: capitalize;
+    font-family: 'Cairo', sans-serif;
+}
+
+.title h2 {
+    margin-bottom: 25px;
+}
+.title hr{
+    height: 1px;
+    background-color: #3AADE6;
+    width: 70px;
+}
+
+
+/****************************************************************************************/
+
+/*Start Navbar*/
+
+nav.navbar {
+    background-color: #F8F9FA;
+    padding: 0 1rem;
+}
+.navbar-bar-icon {
+    font-size: 25px;
+    color: #3AADE6;
+}
+.navbar-light .navbar-toggler {
+    outline: none;
+    border: none;
+    font-size: 30px;
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(58, 173, 230, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar .navbar-nav {
+    text-align: end;
+}
+
+/*End Navbar*/
+
+/****************************************************************************************/
+
+/*Start Header*/
+
+header img {
+    height: 420px;
+}
+
+header .header-side {
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+}
+
+header .header-side h2 {
+    margin-top: 110px;
+    font-size: 50px;
+    line-height: 1.4;
+    font-weight: 400;
+    color: #233142;
+
+}
+
+/*End Header*/
+
+/****************************************************************************************/
+
+/*Start About Us*/
+
+.about-us .about-ipda3 h4 {
+    line-height: 2;
+    margin-top: 80px;
+    color: #233142;
+}
+
+/*End About Us*/
+
+/****************************************************************************************/
+
+/*Start Our Works*/
+
+.works {
+    margin-top: 100px;
+}
+
+.our-works {
+    padding: 40px 0;
+    height: 650px;
+    margin-top: 40px;
+}
+
+.our-works .card {
+    border-radius: 30px;
+}
+
+.our-works .card .card-img-top {
+    width: 50%;
+    margin: 25px auto;
+    height: 165px;
+}
+
+.our-works .card .card-body h4 a{
+    font-weight: 400;
+}
+
+.our-works .card .card-body h4 a:hover{
+    text-decoration: none;
+}
+
+.our-works .owl-nav .owl-prev, .owl-next {
+    font-size: 35px !important;
+    font-weight: bold !important;
+    margin: 0 25px !important;
+    outline: none !important;
+}
+
+.our-works .owl-nav .owl-prev:hover,.owl-next:hover {
+    background-color: inherit !important;
+    color: #007bff !important;
+}
+
+.our-works .owl-dots .owl-dot {
+    outline: none;
+}
+
+.our-works .owl-dots .owl-dot span{
+    background-color: #000000 !important;
+}
+
+.our-works .owl-dots .owl-dot.active span {
+    background-color: #007bff !important;
+}
+
+.owl-nav {
+    margin-top: 50px !important;
+}
+
+/*End Our Works*/
+
+/****************************************************************************************/
+
+/*Start Some Works*/
+
+.some-works {
+    margin-top: 100px;
+}
+
+.my-works {
+    padding: 100px 0;
+    margin-top: 40px;
+}
+
+.my-works .card {
+    margin-bottom: 40px;
+}
+
+.my-works .card, .card .card-img-top {
+    border-radius: 25px;
+}
+
+.my-works .card .card-img-top{
+    height: 290px;
+}
+
+.my-works .card .card-body .card-title{
+    text-align: center;
+    color: #233142;
+    font-weight: 400;
+}
+
+.my-works .btn-shahed .btn {
+    background-color: #233142 ;
+    color: #ffffff;
+    padding: 10px 60px;
+    border-radius: 30px;
+    font-size: 23px;
+}
+
+/*End Some Works*/
+
+/****************************************************************************************/
+
+/*Start News*/
+
+.news {
+    padding: 50px 0;
+}
+
+.news .card {
+    margin-bottom: 40px;
+}
+
+.news .card, .card .card-img-top {
+    border-radius: 25px;
+}
+
+.news .card .card-body .card-title {
+    text-align: center;
+    color: #233142;
+    font-weight: 400;
+}
+
+.news .card .card-body .news-action {
+    margin: 15px 0;
+}
+
+.news .card .card-body .news-action .btn {
+    padding: 4px 23px;
+    background-color: #233142;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.news .btn-news .btn{
+    padding: 8px 65px;
+    background-color: #233142;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    font-size: 23px;
+}
+
+/*End News*/
+
+/****************************************************************************************/
+
+/*Start Our Clients*/
+
+.clients {
+    margin-top: 70px;
+}
+
+.our-clients {
+    height: 500px;
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+.our-clients .owl-carousel .item img {
+    width: 180px;
+    height: 180px;
+    margin: auto;
+}
+
+.our-clients .owl-nav .owl-prev, .owl-next {
+    font-size: 35px !important;
+    font-weight: bold !important;
+    margin: 0 25px !important;
+    outline: none !important;
+}
+
+.our-clients .owl-carousel .owl-nav {
+    margin-top: 25px;
+}
+
+.our-clients .owl-nav .owl-prev:hover,.owl-next:hover {
+    background-color: inherit !important;
+    color: #007bff !important;
+}
+
+.our-clients .owl-dots .owl-dot {
+    outline: none;
+}
+
+.our-clients .owl-dots .owl-dot span{
+    background-color: #000000 !important;
+}
+
+.our-clients .owl-dots .owl-dot.active span {
+    background-color: #007bff !important;
+}
+
+/*End Our Clients*/
+
+/****************************************************************************************/
+
+/*Start Footer*/
+
+footer {
+    width: 100%;
+    padding: 50px 0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+footer .side-1 img{
+
+}
+
+footer .side-2 img{
+
+    margin-bottom: 15px;
+}
+
+footer .side-2 h5{
+    color: #ffffff;
+    font-weight: 400;
+}
+
+footer .icons ul {
+    margin-top: 30px;
+    padding: 0;
+}
+
+footer .icons ul li {
+    list-style: none;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+footer .icons ul li a {
+    color: #ffffff;
+}
+
+footer .icons ul li a i {
+    font-size: 35px;
+}
+
+/*End Footer*/
+
+/*Start Framework*/
+
+.special-heading {
+    margin-right: 30px;
+    padding-top: 40px;
+    position: relative;
+}
+
+.special-heading h2 {
+    padding-right: 25px;
+    font-size: 40px;
+}
+
+.special-heading h2:before {
+    content: "";
+    position: absolute;
+    height: 50px;
+    top: 40px;
+    right: 0;
+    border-right: 4px solid #3aade6;
+}
+
+/*Start Framework*/

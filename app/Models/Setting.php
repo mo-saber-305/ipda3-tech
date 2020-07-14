@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Setting extends Model 
+class Setting extends Model
 {
 
     protected $table = 'settings';
     public $timestamps = true;
-    protected $fillable = array('header_logo', 'footer_logo', 'slogan', 'intro_image');
+    protected $fillable = array('header_logo', 'footer_logo', 'slogan', 'intro_image', 'facebook', 'whatsapp', 'linkedin', 'twitter', 'instagram');
 
 }

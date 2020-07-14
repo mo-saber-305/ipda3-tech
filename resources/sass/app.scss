@@ -76,6 +76,22 @@ body, html {
     }
 }
 
+// form invalid
+.content form .form-control.is-invalid {
+    padding-right: 12px;
+}
+
+//table style
+.content .card .card-body .table tbody tr > td {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content .card .card-body .table tbody tr > td img {
+    max-width: 100%;
+    height: 100px;
+}
 
 
 

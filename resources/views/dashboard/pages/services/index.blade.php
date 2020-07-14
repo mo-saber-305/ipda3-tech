@@ -1,18 +1,17 @@
 @extends("dashboard.layouts.dashboard")
 
+@section('breadcrumb')
+    <ol class="breadcrumb ">
+        <li class="breadcrumb-item"><a href="{{ route('home') }}">الرئيسية</a></li>
+        <li class="breadcrumb-item active">الخدمات</li>
+    </ol>
+@stop
+
 @section('page_title', 'الخدمات')
 
 @section('style')
     <style>
-        .content .index-project .card .card-body .table tbody tr > td {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
 
-        .content .index-project .card .card-body .table tbody tr > td img {
-            max-width: 100%;
-        }
         .content .index-project .card .card-body .table tbody tr > td .btn-success {
             margin-left: 15px;
         }
@@ -47,10 +46,18 @@
                     <div class="card-body">
                         @include("dashboard.includes.messages")
                         @if(count($services))
-                            <a class="btn btn-primary mb-3" href="{{ route('services.create') }}" role="button">
-                                <i class="fas fa-plus"></i>
-                                انشاء خدمة جديده
-                            </a>
+                            @if (auth()->user()->hasPermission('create-services'))
+                                <a class="btn btn-primary mb-3" href="{{ route('dashboard.services.create') }}" role="button">
+                                    <i class="fas fa-plus"></i>
+                                    انشاء خدمة جديده
+                                </a>
+                            @else
+                                <button class="btn btn-primary mb-3 disabled">
+                                    <i class="fas fa-plus"></i>
+                                    انشاء خدمة جديد
+                                </button>
+                            @endif
+
                             <table class="table table-bordered text-center">
                                 <thead class="thead-dark">
                                 <tr class="d-flex">
@@ -75,51 +82,35 @@
                                             <img src="{{asset('storage/' .$service->image)}}" height="100">
                                         </td>
                                         <td class="col-2">
-                                            <a class="btn btn-success "
-                                               href="{{ route('services.edit', $service->id) }}"
-                                               role="button" data-toggle="tooltip"
-                                               data-placement="top" title="تعديل الخدمة"
-                                            >
-                                                <i class="fas fa-edit"></i>
-                                            </a>
+                                            @if (auth()->user()->hasPermission('update-services'))
+                                                <a class="btn btn-success "
+                                                   href="{{ route('dashboard.services.edit', $service->id) }}"
+                                                   role="button" data-toggle="tooltip"
+                                                   data-placement="top" title="تعديل الخدمة"
+                                                >
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                            @else
+                                                <button class="btn btn-success disabled">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            @endif
 
-                                            <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-danger "
-                                                    data-toggle="modal" data-target="#exampleModal"
-                                                    data-tooltip="tooltip"
-                                                    data-placement="top" title="حذف الخدمه"
-                                            >
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">
-                                                                <strong>تحذير هام</strong>
-                                                            </h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <h4 class="mb-0">
-                                                                سوف يتم حذف الخدمة نهائيا <br>
-                                                                هل انت متأكد إنك تريد حذف الخدمة ؟
-                                                            </h4>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-primary" data-dismiss="modal">إلغاء</button>
-                                                            <form action="{{ route('services.destroy', $service->id) }}" method="post" class="mb-0">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <button type="submit" class="btn btn-danger">حذف</button>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @if (auth()->user()->hasPermission('delete-services'))
+                                                <form action="{{ route('dashboard.services.destroy', $service->id) }}" method="post" class="mb-0">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger" data-toggle="tooltip"
+                                                            data-placement="top" title="حذف الخدمة">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            @else
+                                                <button class="btn btn-danger disabled">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            @endif
+
                                         </td>
                                     </tr>
                                 @endforeach
@@ -132,10 +123,18 @@
                                 <h3 class="mb-3">
                                     لا توجد خدمات حاليا
                                 </h3>
-                                <a class="btn btn-primary" href="{{ route('services.create') }}" role="button">
-                                    <i class="fas fa-plus"></i>
-                                    انشاء خدمة جديد
-                                </a>
+
+                                @if (auth()->user()->hasPermission('create-services'))
+                                    <a class="btn btn-primary" href="{{ route('dashboard.services.create') }}" role="button">
+                                        <i class="fas fa-plus"></i>
+                                        انشاء خدمة جديد
+                                    </a>
+                                @else
+                                    <button class="btn btn-primary disabled">
+                                        <i class="fas fa-plus"></i>
+                                        انشاء خدمة جديد
+                                    </button>
+                                @endif
                             </div>
                         @endif
                     </div>

@@ -13,6 +13,14 @@ use Illuminate\Support\Str;
 
 class ArticlesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:create-articles'])->only('create');
+        $this->middleware(['permission:read-articles'])->only('index');
+        $this->middleware(['permission:update-articles'])->only('edit');
+        $this->middleware(['permission:delete-articles'])->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -51,7 +59,7 @@ class ArticlesController extends Controller
             'slug' => Str::slug($request->input('title'), '-'),
         ]);
         session()->flash('success', 'تم انشاء المقالة بنجاح');
-        return redirect(route('articles.index'));
+        return redirect(route('dashboard.articles.index'));
     }
 
     /**
@@ -97,7 +105,7 @@ class ArticlesController extends Controller
 
         session()->flash('success', 'تم تعديل المقالة بنجاح');
 
-        return redirect(route('articles.index'));
+        return redirect(route('dashboard.articles.index'));
     }
 
     /**
@@ -114,11 +122,11 @@ class ArticlesController extends Controller
             Storage::disk('public')->delete($article->image);
             $article->forceDelete();
             session()->flash('error', 'تم حذف المقاله بشكل نهائي');
-            return redirect(route('trashed.index', compact('article')));
+            return redirect(route('dashboard.trashed.index', compact('article')));
         } else{
             $article->delete();
             session()->flash('error', 'تم حذف المقاله بنجاح وتم وضعها في قائمة المقالات المحذوفه في حال اردت استرجاعه');
-            return redirect(route('articles.index', compact('article')));
+            return redirect(route('dashboard.articles.index', compact('article')));
 
         }
     }
@@ -136,6 +144,6 @@ class ArticlesController extends Controller
 
         session()->flash('success', 'تم استرجاع المقالة بنجاح');
 
-        return redirect(route('articles.index'));
+        return redirect(route('dashboard.articles.index'));
     }
 }

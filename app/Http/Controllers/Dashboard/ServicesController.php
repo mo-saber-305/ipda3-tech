@@ -13,6 +13,14 @@ use Illuminate\Support\Str;
 
 class ServicesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:create-services'])->only('create');
+        $this->middleware(['permission:read-services'])->only('index');
+        $this->middleware(['permission:update-services'])->only('edit');
+        $this->middleware(['permission:delete-services'])->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -53,7 +61,7 @@ class ServicesController extends Controller
 
        session()->flash('success', 'تم انشاء الخدمة بنجاح');
 
-       return redirect(route('services.index'));
+       return redirect(route('dashboard.services.index'));
     }
 
     /**
@@ -101,7 +109,7 @@ class ServicesController extends Controller
 
         session()->flash('success', 'تم تعديل الخدمة بنجاح');
 
-        return redirect(route('services.index'));
+        return redirect(route('dashboard.services.index'));
     }
 
     /**
@@ -117,6 +125,6 @@ class ServicesController extends Controller
 
         session()->flash('error', 'تم حذف الخدمة بنجاح');
 
-        return redirect(route('services.index'));
+        return redirect(route('dashboard.services.index'));
     }
 }

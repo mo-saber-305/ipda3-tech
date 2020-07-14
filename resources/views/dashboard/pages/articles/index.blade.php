@@ -1,21 +1,17 @@
 @extends("dashboard.layouts.dashboard")
 
-@inject('article', "App\Models\Article")
+@section('breadcrumb')
+    <ol class="breadcrumb ">
+        <li class="breadcrumb-item"><a href="{{ route('home') }}">الرئيسية</a></li>
+        <li class="breadcrumb-item active">المقالات</li>
+    </ol>
+@stop
+
 
 @section('page_title', 'المقالات')
 
 @section('style')
     <style>
-        .content .index-article .card .card-body .table tbody tr > td {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .content .index-article .card .card-body .table tbody tr > td img {
-            max-width: 100%;
-        }
-
         .content .index-article .card .card-body .table tbody tr > td .badge {
             padding: 7px 10px;
         }
@@ -49,63 +45,92 @@
                         @include("dashboard.includes.messages")
                         @if(count($articles))
                             <div class="d-flex justify-content-between mb-4">
-                                <a class="btn btn-primary" href="{{ route('articles.create') }}" role="button">
-                                    <i class="fas fa-plus"></i>
-                                    انشاء مقاله جديده
-                                </a>
-                                <a class="btn btn-info text-light" href="{{ route('trashed.index') }}" role="button">
-                                    <i class="fas fa-trash"></i>
-                                    المقالات المحذوفه
-                                </a>
+                                @if (auth()->user()->hasPermission('create-articles'))
+                                    <a class="btn btn-primary" href="{{ route('dashboard.articles.create') }}" role="button">
+                                        <i class="fas fa-plus"></i>
+                                        انشاء مقاله جديده
+                                    </a>
+                                @else
+                                    <button class="btn btn-primary disabled">
+                                        <i class="fas fa-plus"></i>
+                                        انشاء مقالة جديده
+                                    </button>
+                                @endif
+                                @if (auth()->user()->hasPermission('delete-articles'))
+                                    <a class="btn btn-info text-light" href="{{ route('dashboard.trashed.index') }}" role="button">
+                                        <i class="fas fa-trash"></i>
+                                        المقالات المحذوفه
+                                    </a>
+                                @else
+                                    <button class="btn  btn-info text-light disabled">
+                                        <i class="fas fa-trash"></i>
+                                        المقالات المحذوفه
+                                    </button>
+                                @endif
                             </div>
-                            <table class="table table-bordered text-center">
+                            <div class="table-responsive">
+                                <table class="table table-bordered text-center mb-0" style="width: 100%">
                                     <thead class="thead-dark">
                                     <tr class="d-flex">
-                                        <th class="col-1">#</th>
-                                        <th class="col-5">العنوان</th>
-                                        <th class="col-2">الصوره</th>
-                                        <th class="col-2">المشاهدات</th>
-                                        <th class="col-2">التفاصيل</th>
+                                        <th class="col-sm-1">#</th>
+                                        <th class="col-sm-4">العنوان</th>
+                                        <th class="col-sm-2">الصوره</th>
+                                        <th class="col-sm-2">المشاهدات</th>
+                                        <th class="col-sm-3">التفاصيل</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($articles as $article)
                                         <tr class="d-flex">
-                                            <td class="col-1"><strong>{{$loop->iteration}}</strong></td>
-                                            <td class="col-5">
+                                            <td class="col-sm-1"><strong>{{$loop->iteration}}</strong></td>
+                                            <td class="col-sm-4">
                                                 <h5 class="mb-0 text-bold">{{$article->title}}</h5>
                                             </td>
-                                            <td class="col-2">
+                                            <td class="col-sm-2">
                                                 <img src="{{asset('storage/' .$article->image)}}" alt="...">
                                             </td>
-                                            <td class="col-2"><span class="badge bg-dark">{{$article->views}}</span></td>
-                                            <td class="col-2 d-flex justify-content-between">
+                                            <td class="col-sm-2"><span class="badge bg-dark">{{$article->views}}</span></td>
+                                            <td class="col-sm-3">
                                                 <a class="btn btn-primary"
-                                                   href="{{ route('articles.show', $article->id) }}"
+                                                   href="{{ route('dashboard.articles.show', $article->id) }}"
                                                    role="button" data-toggle="tooltip"
                                                    data-placement="top" title="فتح المقاله">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
-                                                <a class="btn btn-success"
-                                                   href="{{ route('articles.edit', $article->id) }}"
-                                                   role="button" data-toggle="tooltip"
-                                                   data-placement="top" title="تعديل المقاله"
-                                                >
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-                                                <form action="{{ route('articles.destroy', $article->id) }}" method="post">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger" data-toggle="tooltip"
-                                                            data-placement="top" title="حذف المقاله">
+                                                @if (auth()->user()->hasPermission('update-articles'))
+                                                    <a class="btn btn-success mx-3"
+                                                       href="{{ route('dashboard.articles.edit', $article->id) }}"
+                                                       role="button" data-toggle="tooltip"
+                                                       data-placement="top" title="تعديل المقاله"
+                                                    >
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                @else
+                                                    <button class="btn btn-success disabled">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                @endif
+
+                                                @if (auth()->user()->hasPermission('delete-articles'))
+                                                    <form action="{{ route('dashboard.articles.destroy', $article->id) }}" method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger" data-toggle="tooltip"
+                                                                data-placement="top" title="حذف المقاله">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </form>
+                                                @else
+                                                    <button class="btn btn-danger disabled">
                                                         <i class="fas fa-trash"></i>
                                                     </button>
-                                                </form>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
+                            </div>
 
                             {{ $articles->links() }}
                         @else
@@ -113,14 +138,28 @@
                                 <h3 class="mb-3">
                                     لا توجد مقالات حاليا
                                 </h3>
-                                <a class="btn btn-primary ml-3" href="{{ route('articles.create') }}" role="button">
-                                    <i class="fas fa-plus"></i>
-                                    انشاء مقالة جديده
-                                </a>
-                                <a class="btn btn-info text-light" href="{{ route('trashed.index') }}" role="button">
-                                    <i class="fas fa-trash"></i>
-                                    المقالات المحذوفه
-                                </a>
+                                @if (auth()->user()->hasPermission('create-articles'))
+                                    <a class="btn btn-primary ml-3" href="{{ route('dashboard.articles.create') }}" role="button">
+                                        <i class="fas fa-plus"></i>
+                                        انشاء مقالة جديده
+                                    </a>
+                                @else
+                                    <button class="btn btn-primary ml-3 disabled">
+                                        <i class="fas fa-plus"></i>
+                                        انشاء مقالة جديده
+                                    </button>
+                                @endif
+                                @if (auth()->user()->hasPermission('delete-articles'))
+                                    <a class="btn btn-info text-light" href="{{ route('dashboard.trashed.index') }}" role="button">
+                                        <i class="fas fa-trash"></i>
+                                        المقالات المحذوفه
+                                    </a>
+                                @else
+                                    <button class="btn  btn-info text-light disabled">
+                                        <i class="fas fa-trash"></i>
+                                        المقالات المحذوفه
+                                    </button>
+                                @endif
                             </div>
                         @endif
                     </div>
