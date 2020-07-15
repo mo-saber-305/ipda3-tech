@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Article;
+use App\Models\Client;
 use App\Models\Project;
 use App\Models\Service;
 use App\Models\Setting;
@@ -31,9 +32,11 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         $setting = Setting::first();
         $services = Service::all();
-        $projects = Project::take(6)->get();
+        $clients = Client::all();
+        $projects = Project::latest()->take(6)->get();
+        $articles = Article::latest()->take(4)->get();
 
-        view()->share(compact('setting', 'services', 'projects'));
+        view()->share(compact('setting', 'services', 'clients', 'projects', 'articles'));
 
     }
 }

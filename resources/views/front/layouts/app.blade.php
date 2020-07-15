@@ -14,28 +14,26 @@
         <!-- Fonts -->
 
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
-        <!-- Bootstrap 4 RTL -->
-    {{--<link rel="stylesheet" href="{{ asset('adminlte/css/bootstrap-rtl/bootstrap-rtl.min.css') }}">--}}
 
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="{{ asset('front/css/bootstrap/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugin/bootstrap-rtl/bootstrap-rtl.min.css') }}">
 
         <!-- FontAwesome CSS -->
-        <link rel="stylesheet" href="{{ asset('front/css/font-awesome/all.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugin/fontAwesome/css/all.min.css') }}">
 
         <!-- Hover CSS -->
-        <link rel="stylesheet" href="{{ asset('front/css/hover/hover-min.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugin/hover/hover-min.css') }}">
 
         <!--Owl Carousel Css-->
-        <link rel="stylesheet" href="{{ asset('front/css/owl-carousel/owl.carousel.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('front/css/owl-carousel/owl.theme.default.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugin/owl-carousel/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugin/owl-carousel/owl.theme.default.min.css') }}">
 
         <!--    style css-->
-        <link rel="stylesheet" href="{{ asset('front/css/pages/index.css') }}">
-        <link rel="stylesheet" href="{{ asset('front/css/pages/media.css') }}">
+        <link rel="stylesheet" href="{{ asset('front/css/index.css') }}">
+        <link rel="stylesheet" href="{{ asset('front/css/media.css') }}">
         <style>
             footer {
-                background-image: url("{{ asset('front/imgs/footer.jpg') }}");
+                background-image: url("{{ asset('images/footer.jpg') }}");
             }
         </style>
         @yield('style')
@@ -52,20 +50,19 @@
         </div>
 
 
-        <!-- Scripts -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="{{ asset('front/js/jquery.min.js') }}"></script>
-        <script src="{{ asset('front/js/popper.min.js') }}"></script>
-        <script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
+        <!-- App js, jquery, popper -->
+        <script src="{{ asset('js/app.js') }}"></script>
+        <!-- Bootstrap 4 -->
+        <script src="{{ asset('plugin/bootstrap-rtl/bootstrap.min.js') }}"></script>
 
         <!--FontAwesome Js-->
-        <script src="{{ asset('front/js/fontawesome.min.js') }}"></script>
+        <script src="{{ asset('plugin/fontAwesome/fontawesome.min.js') }}"></script>
 
         <!-- 3d-carousel -->
         <script src="{{ asset('plugin/3d-carousel/jquery.waterwheelCarousel.min.js') }}"></script>
 
         <!--Owl Carousel Js-->
-        <script src="{{ asset('front/js/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('plugin/owl-carousel/owl.carousel.min.js') }}"></script>
 
         <!--App Js-->
         <script src="{{ asset('front/js/app.js') }}"></script>

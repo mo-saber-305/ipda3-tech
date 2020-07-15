@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row align-items-center content">
             <div class="col-md-6 side-1">
-                <img src="{{ asset('front/imgs/footer-vec.jpg') }}" width="200" height="300">
+                <img src="{{ asset('images/footer-vec.jpg') }}" width="200" height="300">
             </div>
             <div class="col-md-6 side-2">
                 <img src="{{ asset('storage/' . $setting->footer_logo) }}" width="250" height="65">

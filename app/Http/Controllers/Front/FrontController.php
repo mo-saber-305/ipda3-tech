@@ -12,12 +12,11 @@ use Illuminate\Http\Request;
 class FrontController extends Controller
 {
     public function home() {
-        $articles = Article::take(2)->get();
-        return view('front.pages.home', compact('articles'));
+        return view('front.pages.home');
     }
 
     public function articles() {
-        $articles = Article::all();
+        $articles = Article::latest()->paginate(6);
         return view('front.pages.articles.index', compact('articles'));
     }
 
@@ -28,7 +27,8 @@ class FrontController extends Controller
     }
 
     public function projects() {
-        return view('front.pages.projects.index');
+        $projects = Project::latest()->paginate(6);
+        return view('front.pages.projects.index', compact('projects'));
     }
 
     public function projectShow($id) {

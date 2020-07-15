@@ -106,7 +106,7 @@
                                                         <i class="fas fa-edit"></i>
                                                     </a>
                                                 @else
-                                                    <button class="btn btn-success disabled">
+                                                    <button class="btn btn-success mx-3 disabled">
                                                         <i class="fas fa-edit"></i>
                                                     </button>
                                                 @endif

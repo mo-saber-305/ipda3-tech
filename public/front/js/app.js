@@ -48,13 +48,6 @@ $(document).ready(function () {
         }
     });
 
-    //smooth scroll
-    navLink.click(function () {
-        $('html, body').animate({
-            scrollTop: $('#' + $(this).data('value')).offset().top
-        }, 1000);
-    });
-
     //add active class
     navLink.click(function () {
         $(this).parent().addClass('active').siblings().removeClass()

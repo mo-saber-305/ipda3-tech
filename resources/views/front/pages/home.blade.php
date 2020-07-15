@@ -4,16 +4,16 @@
 @section('style')
     <style>
         header .header-side {
-            background-image: url("{{ asset('front/imgs/header-side.jpg') }}");
+            background-image: url("{{ asset('images/header-side.jpg') }}");
         }
         .our-works {
-            background: url("{{ asset('front/imgs/we-offer.png') }}") no-repeat center center;
+            background: url("{{ asset('images/we-offer.png') }}") no-repeat center center;
         }
         .my-works {
-            background: url("{{ asset('front/imgs/bg30-Ar1web.gif') }}");
+            background: url("{{ asset('images/bg30-Ar1web.gif') }}");
         }
         .our-clients {
-            background: url("{{ asset('front/imgs/our-client-bg.jpg') }}") no-repeat 100% 100%;
+            background: url("{{ asset('images/our-client-bg.jpg') }}") no-repeat 100% 100%;
         }
     </style>
 @stop
@@ -48,7 +48,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="{{ asset('front/imgs/who-are-we.png') }}"  width="85%" height="480px">
+                    <img src="{{ asset('images/who-are-we.png') }}"  width="85%" height="480px">
                 </div>
                 <div class="col-md-6 about-ipda3">
                     <h4>{{ $setting->slogan }}</h4>
@@ -176,22 +176,11 @@
             <div class="container">
 
                 <div class="owl-carousel owl-theme" id="works-slider">
-                    <div class="item">
-                        <img src="{{ asset('front/imgs/smart.png') }}">
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('front/imgs/one.png') }}">
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('front/imgs/elnesr.png') }}">
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('front/imgs/dokan.png') }}">
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('front/imgs/rawaqq.png') }}">
-                    </div>
-
+                    @foreach ($clients as $client)
+                        <div class="item">
+                            <img src="{{ asset('storage/' . $client->image) }}">
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </section>

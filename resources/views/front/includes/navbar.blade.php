@@ -12,22 +12,16 @@
     <div class="collapse navbar-collapse" id="navbarsExample01">
         <ul class="navbar-nav mr-auto ">
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">الرئيسيه <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ route('front.home') }}">الرئيسيه <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" data-value="about-us">عن ابداع تك</a>
+                <a class="nav-link" href="{{ route('front.projects.index') }}">اعمالنا</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" data-value="our-works">خدماتنا</a>
+                <a class="nav-link" href="{{ route('front.articles.index') }}">المقالات</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" data-value="some-works">اعمالنا</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" data-value="news">المقالات</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" data-value="clients">عملائنا</a>
+                <a class="nav-link" href="{{ route('login') }}">تسجيل الدخول</a>
             </li>
         </ul>
     </div>

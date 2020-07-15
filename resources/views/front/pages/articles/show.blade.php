@@ -3,7 +3,7 @@
 @section('style')
     <style>
         .news-show {
-            background: url("{{ asset('front/imgs/bg30-Ar1web.gif') }}");
+            background: url("{{ asset('images/bg30-Ar1web.gif') }}");
         }
 
         .card {
