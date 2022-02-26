@@ -9,7 +9,7 @@ class Photo extends Model
 
     protected $table = 'photos';
     public $timestamps = true;
-    protected $fillable = array('project_images', 'ext', 'project_id');
+    protected $fillable = array('image', 'project_id');
 
     public function project()
     {

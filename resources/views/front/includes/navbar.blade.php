@@ -2,10 +2,12 @@
     <!-- Image and text -->
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="{{ route('front.home') }}">
-            <img src="{{ asset('storage/' . $setting->header_logo) }}" width="230" height="80" class="d-inline-block align-top" alt="">
+            <img src="{{ asset($setting->header_logo) }}" width="230" height="80" class="d-inline-block align-top"
+                 alt="">
         </a>
     </nav>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample01"
+            aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 

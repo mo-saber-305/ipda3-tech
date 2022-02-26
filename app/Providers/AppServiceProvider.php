@@ -30,13 +30,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        $setting = Setting::first();
-        $services = Service::all();
-        $clients = Client::all();
-        $projects = Project::latest()->take(6)->get();
-        $articles = Article::latest()->take(4)->get();
 
-        view()->share(compact('setting', 'services', 'clients', 'projects', 'articles'));
-
+        view()->share([
+            'setting' => Setting::first(),
+            'services' => Service::all(),
+            'clients' => Client::all(),
+            'projects' => Project::latest()->take(6)->get(),
+            'articles' => Article::latest()->take(4)->get(),
+        ]);
     }
 }

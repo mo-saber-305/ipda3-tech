@@ -14,16 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
-    // Auth Route
-    Auth::routes(['register' => false]);
+// Auth Route
+Auth::routes(['register' => false]);
 
 
 // Home Route
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Dashboard Routes
-Route::prefix('dashboard')->namespace('Dashboard')->name('dashboard.')->middleware(['auth'])->group(function (){
+Route::prefix('dashboard')->namespace('Dashboard')->name('dashboard.')->middleware(['auth'])->group(function () {
 
     // Articles Route
     Route::resource('articles', 'ArticlesController');
@@ -55,6 +54,9 @@ Route::prefix('dashboard')->namespace('Dashboard')->name('dashboard.')->middlewa
         // Profile Route
         Route::get('users/{id}/profile', 'UserController@profile')->name('users.profile');
         Route::put('users/{id}/update', 'UserController@updateProfile')->name('users.updateProfile');
+        // change password Route
+        Route::get('users/{id}/change-password', 'UserController@changePassword')->name('users.changePassword');
+        Route::put('users/{id}/change-password', 'UserController@updatePassword')->name('users.updatePassword');
     });
 });
 

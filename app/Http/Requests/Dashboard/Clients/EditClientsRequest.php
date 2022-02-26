@@ -25,6 +25,7 @@ class EditClientsRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'url' => 'required',
         ];
     }
 
@@ -37,6 +38,7 @@ class EditClientsRequest extends FormRequest
     {
         return [
             'name.required' => 'يرجي ادخال اسم العميل',
+            'url.required' => 'يرجي ادخال رابط الموقع',
         ];
     }
 }

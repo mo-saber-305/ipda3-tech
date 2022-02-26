@@ -8,7 +8,6 @@ use App\Http\Requests\Dashboard\Users\EditUserRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -44,7 +43,7 @@ class UserController extends Controller
 
         session()->flash('success', 'تم انشاء المشرف بنجاح');
 
-       return redirect(route('dashboard.users.index'));
+        return redirect(route('dashboard.users.index'));
 
     }
 
@@ -93,26 +92,66 @@ class UserController extends Controller
 
     public function updateProfile(Request $request, $id)
     {
-//        dd($request->all());
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'description' => 'required',
+            'image' => 'image|mimes:png,jpg,jpeg',
+        ]);
+
         $user = User::findOrFail($id);
 
-        $data = $request->except(['password', 'password_confirmation', 'image']);
+        $data = $request->except(['image']);
 
         if ($request->hasFile('image')) {
-            Storage::disk('public')->delete($user->image);
+            if ($user->image != 'images/users/user.png') {
+                unlink(public_path() . '/' . $user->image);
+            }
 
-            $image = $request->file(['image'])->store('images/users', 'public');
+            $image = $request->image->hashName();
 
-            $data['image'] = $image;
+            $path = public_path() . '/images/users';
+
+            $request->file('image')->move($path, $image);
+
+            $data['image'] = "images/users/$image";
         }
 
-        $data['password'] = Hash::make($request->input(['password']));
 
         $user->update($data);
-
 
         session()->flash('success', 'تم تعديل الملف الشخصي بنجاح');
 
         return redirect(route('home'));
+    }
+
+    public function changePassword($id)
+    {
+        $user = User::findOrFail($id);
+        return view('dashboard.pages.users.change_password', compact('user'));
+    }
+
+
+    public function updatePassword(Request $request, $id)
+    {
+        $request->validate([
+            'old_password' => 'required',
+            'password' => 'required|confirmed|min:6|different:old_password',
+        ]);
+
+        $user = User::query()->findOrFail($id);
+
+        if (Hash::check($request->old_password, $user->password)) {
+            $user->update([
+                'password' => Hash::make($request->password)
+            ]);
+
+            $request->session()->flash('success', 'تم تغيير كلمة المرور بنجاح');
+            return redirect()->back();
+
+        } else {
+            $request->session()->flash('error', 'كلمة المرور القديمه خاطئه من فضلك اكتب كلمة المرور الصحيحه');
+            return redirect()->back();
+        }
     }
 }

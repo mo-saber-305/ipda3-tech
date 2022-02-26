@@ -5,15 +5,20 @@
         .show-article .card {
             border: 0;
         }
+
         .show-article .project-show .special-heading h2 {
             margin-right: 15px;
         }
+
         .show-article .project-show .project-details {
             background: url({{asset('images/details-bg.png')}});
         }
+
         .show-article .project-show .project-slider .kbd {
             margin-top: 50px;
+            margin-bottom: 20px;
         }
+
         .show-article .project-show .project-slider .kbd kbd {
             cursor: pointer;
             margin-left: 5px;
@@ -27,13 +32,15 @@
         .show-article .project-show .project-slider #carousel {
             height: 550px;
         }
+
         .show-article .project-show .project-slider #carousel img {
             height: 550px;
             width: 400px;
             cursor: pointer;
             top: 80px !important;
-
+            border-radius: 20px;
         }
+
         .show-article .project-show .project-slider #carousel .carousel-center {
             top: 0 !important;
         }
@@ -55,7 +62,7 @@
                             <div class="project-header">
                                 <div class="row justify-content-center">
                                     <div class="col-sm-12 col-md-9 col-lg-7">
-                                        <img src="{{ asset('storage/' .$project->cover_image) }}" class="w-100">
+                                        <img src="{{ asset($project->cover_image) }}" class="w-100">
                                     </div>
                                 </div>
                             </div>
@@ -81,8 +88,8 @@
                                         </div>
 
                                         <div id="carousel">
-                                            @foreach ($project->photos()->get('project_images') as $photo)
-                                                <img src="{{ asset('storage/' .$photo->project_images) }}"/>
+                                            @foreach ($project->photos as $photo)
+                                                <img src="{{ asset($photo->image) }}"/>
                                             @endforeach
                                         </div>
                                     </div>

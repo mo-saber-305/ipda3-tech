@@ -8,7 +8,8 @@ body, html {
 .title h2 {
     margin-bottom: 25px;
 }
-.title hr{
+
+.title hr {
     height: 1px;
     background-color: #3AADE6;
     width: 70px;
@@ -23,10 +24,12 @@ nav.navbar {
     background-color: #F8F9FA;
     padding: 0 1rem;
 }
+
 .navbar-bar-icon {
     font-size: 25px;
     color: #3AADE6;
 }
+
 .navbar-light .navbar-toggler {
     outline: none;
     border: none;
@@ -39,6 +42,11 @@ nav.navbar {
 
 .navbar .navbar-nav {
     text-align: end;
+}
+
+.navbar .navbar-nav .nav-link {
+    text-align: center !important;
+    font-size: 20px !important;
 }
 
 /*End Navbar*/
@@ -103,11 +111,11 @@ header .header-side h2 {
     height: 165px;
 }
 
-.our-works .card .card-body h4 a{
+.our-works .card .card-body h4 a {
     font-weight: 400;
 }
 
-.our-works .card .card-body h4 a:hover{
+.our-works .card .card-body h4 a:hover {
     text-decoration: none;
 }
 
@@ -118,7 +126,7 @@ header .header-side h2 {
     outline: none !important;
 }
 
-.our-works .owl-nav .owl-prev:hover,.owl-next:hover {
+.our-works .owl-nav .owl-prev:hover, .owl-next:hover {
     background-color: inherit !important;
     color: #007bff !important;
 }
@@ -127,7 +135,7 @@ header .header-side h2 {
     outline: none;
 }
 
-.our-works .owl-dots .owl-dot span{
+.our-works .owl-dots .owl-dot span {
     background-color: #000000 !important;
 }
 
@@ -162,18 +170,18 @@ header .header-side h2 {
     border-radius: 25px;
 }
 
-.my-works .card .card-img-top{
+.my-works .card .card-img-top {
     height: 290px;
 }
 
-.my-works .card .card-body .card-title{
+.my-works .card .card-body .card-title {
     text-align: center;
     color: #233142;
     font-weight: 400;
 }
 
 .my-works .btn-shahed .btn {
-    background-color: #233142 ;
+    background-color: #233142;
     color: #ffffff;
     padding: 10px 60px;
     border-radius: 30px;
@@ -218,7 +226,7 @@ header .header-side h2 {
     font-weight: 300;
 }
 
-.news .btn-news .btn{
+.news .btn-news .btn {
     padding: 8px 65px;
     background-color: #233142;
     color: #ffffff;
@@ -260,7 +268,7 @@ header .header-side h2 {
     margin-top: 25px;
 }
 
-.our-clients .owl-nav .owl-prev:hover,.owl-next:hover {
+.our-clients .owl-nav .owl-prev:hover, .owl-next:hover {
     background-color: inherit !important;
     color: #007bff !important;
 }
@@ -269,7 +277,7 @@ header .header-side h2 {
     outline: none;
 }
 
-.our-clients .owl-dots .owl-dot span{
+.our-clients .owl-dots .owl-dot span {
     background-color: #000000 !important;
 }
 
@@ -290,16 +298,16 @@ footer {
     background-repeat: no-repeat;
 }
 
-footer .side-1 img{
+footer .side-1 img {
 
 }
 
-footer .side-2 img{
+footer .side-2 img {
 
     margin-bottom: 15px;
 }
 
-footer .side-2 h5{
+footer .side-2 h5 {
     color: #ffffff;
     font-weight: 400;
 }

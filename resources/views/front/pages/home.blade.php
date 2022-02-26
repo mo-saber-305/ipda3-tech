@@ -6,12 +6,15 @@
         header .header-side {
             background-image: url("{{ asset('images/header-side.jpg') }}");
         }
+
         .our-works {
             background: url("{{ asset('images/we-offer.png') }}") no-repeat center center;
         }
+
         .my-works {
             background: url("{{ asset('images/bg30-Ar1web.gif') }}");
         }
+
         .our-clients {
             background: url("{{ asset('images/our-client-bg.jpg') }}") no-repeat 100% 100%;
         }
@@ -25,7 +28,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-5 col-sm-12">
-                    <img src="{{ asset('storage/' . $setting->intro_image) }}" class="mt-5 w-100">
+                    <img src="{{ asset($setting->intro_image) }}" class="mt-5 w-100">
                 </div>
                 <div class="col-md-7 col-sm-12 header-side">
                     <h2> ابداع تك شريكك التقني الامثل لبدأ مشروعك الان</h2>
@@ -48,10 +51,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="{{ asset('images/who-are-we.png') }}"  width="85%" height="480px">
+                    <img src="{{ asset($setting->slogan_image) }}" width="85%" height="480px">
                 </div>
                 <div class="col-md-6 about-ipda3">
-                    <h4>{{ $setting->slogan }}</h4>
+                    <h4>{{ $setting->slogan_content }}</h4>
                 </div>
             </div>
         </div>
@@ -74,12 +77,12 @@
                     @foreach ($services as $service)
                         <div class="item">
                             <div class="card">
-                                <img class="card-img-top" src="{{ asset('storage/' . $service->image) }}">
+                                <img class="card-img-top" src="{{ asset($service->image) }}">
                                 <div class="card-body text-center">
                                     <h4 class="card-title">
                                         <a href="#">{{ $service->title }}</a>
                                     </h4>
-                                    <p class="card-text">{{ $service->content }}</p>
+                                    <p class="card-text">{{ Str::limit($service->content, 100) }}</p>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +111,7 @@
                         <div class="col-xs-12 col-md-6 col-lg-4">
                             <a href="{{ route('front.projects.show', $project->id) }}">
                                 <div class="card hvr-grow-shadow">
-                                    <img class="card-img-top" src="{{ asset('storage/' . $project->image) }}" alt="">
+                                    <img class="card-img-top" src="{{ asset($project->image) }}" alt="">
                                     <div class="card-body">
                                         <h4 class="card-title">{{ $project->title }}</h4>
                                     </div>
@@ -118,7 +121,8 @@
                     @endforeach
                 </div>
                 <div class="btn-shahed text-center">
-                    <a href="{{ route('front.projects.index') }}" class="btn btn-lg hvr-grow-shadow" role="button" aria-pressed="true">شاهد كل اعمالنا</a>
+                    <a href="{{ route('front.projects.index') }}" class="btn btn-lg hvr-grow-shadow" role="button"
+                       aria-pressed="true">شاهد كل اعمالنا</a>
                 </div>
             </div>
         </section>
@@ -140,11 +144,13 @@
                 @foreach ($articles as $article)
                     <div class="col-md-5">
                         <div class="card hvr-glow">
-                            <img class="card-img-top" src="{{ asset('storage/' . $article->image) }}" alt="">
+                            <img class="card-img-top" src="{{ asset($article->image) }}" alt="">
                             <div class="card-body">
                                 <h4 class="card-title">{{ $article->title }}</h4>
                                 <div class="news-action d-flex justify-content-between">
-                                    <a class="btn btn-lg hvr-wobble-top" href="{{ route('front.articles.show', $article->id) }}" role="button">اقرأ الأن</a>
+                                    <a class="btn btn-lg hvr-wobble-top"
+                                       href="{{ route('front.articles.show', $article->id) }}" role="button">اقرأ
+                                        الأن</a>
                                     <div>
                                         <span class="text-muted">{{ $article->views }}</span>
                                         <i class="fas fa-eye"></i>
@@ -156,7 +162,8 @@
                 @endforeach
             </div>
             <div class="btn-news text-center">
-                <a href="{{ route('front.articles.index') }}" class="btn btn-lg hvr-grow-shadow" role="button" aria-pressed="true">المزيد</a>
+                <a href="{{ route('front.articles.index') }}" class="btn btn-lg hvr-grow-shadow" role="button"
+                   aria-pressed="true">المزيد</a>
             </div>
         </div>
     </section>
@@ -177,9 +184,11 @@
 
                 <div class="owl-carousel owl-theme" id="works-slider">
                     @foreach ($clients as $client)
-                        <div class="item">
-                            <img src="{{ asset('storage/' . $client->image) }}">
-                        </div>
+                        <a href="{{ $client->url }}" target="_blank">
+                            <div class="item">
+                                <img src="{{ asset($client->image) }}">
+                            </div>
+                        </a>
                     @endforeach
                 </div>
             </div>

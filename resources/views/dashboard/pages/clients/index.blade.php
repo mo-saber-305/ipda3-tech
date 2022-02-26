@@ -11,12 +11,6 @@
 
 @section('style')
     <style>
-        .content .index-project .card .card-body .table tbody tr > td {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         .content .index-project .card .card-body .table tbody tr > td img {
             max-width: 100%;
         }
@@ -40,19 +34,21 @@
                         <h3 class="card-title">عملاء ابداع تك</h3>
 
                         <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip"
+                                    title="Collapse">
                                 <i class="fas fa-minus"></i>
                             </button>
-                            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip"
+                                    title="Remove">
                                 <i class="fas fa-times"></i>
                             </button>
                         </div>
                     </div>
                     <div class="card-body">
-                        @include("dashboard.includes.messages")
                         @if(count($clients))
                             @if (auth()->user()->hasPermission('create-clients'))
-                                <a class="btn btn-primary mb-3" href="{{ route('dashboard.clients.create') }}" role="button">
+                                <a class="btn btn-primary mb-3" href="{{ route('dashboard.clients.create') }}"
+                                   role="button">
                                     <i class="fas fa-plus"></i>
                                     انشاء عميل جديد
                                 </a>
@@ -64,25 +60,26 @@
                             @endif
                             <table class="table table-bordered text-center">
                                 <thead class="thead-dark">
-                                    <tr class="d-flex">
-                                        <th class="col-1">#</th>
-                                        <th class="col-4">الاسم</th>
-                                        <th class="col-4">الصوره</th>
-                                        <th class="col-3">اكشن</th>
-                                    </tr>
+                                <tr class="d-flex">
+                                    <th class="col-1">#</th>
+                                    <th class="col-3">الاسم</th>
+                                    <th class="col-3">الصوره</th>
+                                    <th class="col-3">رابط الموقع</th>
+                                    <th class="col-2">اكشن</th>
+                                </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($clients as $client)
                                     <tr class="d-flex">
                                         <td class="col-1"><strong>{{$loop->iteration}}</strong></td>
-                                        <td class="col-4">
+                                        <td class="col-3">
                                             <h5 class="mb-0 text-bold">{{$client->name}}</h5>
                                         </td>
-                                        <td class="col-4">
-                                            <img src="{{asset('storage/' .$client->image)}}" height="80">
-                                        </td>
                                         <td class="col-3">
-
+                                            <img src="{{asset($client->image)}}" height="80">
+                                        </td>
+                                        <td class="col-3 text-lowercase"><strong>{{$client->url}}</strong></td>
+                                        <td class="col-2">
                                             @if (auth()->user()->hasPermission('update-clients'))
                                                 <a class="btn btn-success mx-3"
                                                    href="{{ route('dashboard.clients.edit', $client->id) }}"
@@ -97,7 +94,8 @@
                                                 </button>
                                             @endif
                                             @if (auth()->user()->hasPermission('delete-clients'))
-                                                <form action="{{ route('dashboard.clients.destroy', $client->id) }}" method="post" class="mb-0">
+                                                <form action="{{ route('dashboard.clients.destroy', $client->id) }}"
+                                                      method="post" class="mb-0">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger" data-tooltip="tooltip"
@@ -124,7 +122,8 @@
                                 </h3>
 
                                 @if (auth()->user()->hasPermission('create-clients'))
-                                    <a class="btn btn-primary" href="{{ route('dashboard.clients.create') }}" role="button">
+                                    <a class="btn btn-primary" href="{{ route('dashboard.clients.create') }}"
+                                       role="button">
                                         <i class="fas fa-plus"></i>
                                         انشاء عميل جديد
                                     </a>
@@ -151,11 +150,11 @@
     <script>
         $(function () {
             $('[data-tooltip="tooltip"]').tooltip();
-            $('table[data-form="deleteForm"]').on('click', '.form-delete', function(e){
+            $('table[data-form="deleteForm"]').on('click', '.form-delete', function (e) {
                 e.preventDefault();
-                var $form=$(this);
-                $('#confirm').modal({ backdrop: 'static', keyboard: false })
-                    .on('click', '#delete-btn', function(){
+                var $form = $(this);
+                $('#confirm').modal({backdrop: 'static', keyboard: false})
+                    .on('click', '#delete-btn', function () {
                         $form.submit();
                     });
             });

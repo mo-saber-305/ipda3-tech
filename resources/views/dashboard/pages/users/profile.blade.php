@@ -1,5 +1,13 @@
 @extends("dashboard.layouts.dashboard")
 
+@section('style')
+    <style>
+        .card-header::after {
+            content: unset;
+        }
+    </style>
+@stop
+
 @section('breadcrumb')
     <ol class="breadcrumb ">
         <li class="breadcrumb-item"><a href="{{ route('home') }}">الرئيسية</a></li>
@@ -13,16 +21,22 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-                <!-- Default box -->
+            <!-- Default box -->
             <div class="card main-content-card">
-                <div class="card-header">
+                <div class="card-header d-flex justify-content-between align-items-center">
                     <h3 class="card-title">تعديل الملف الشخصي</h3>
 
+                    <a class="btn btn-outline-primary" href="{{ route('dashboard.users.changePassword', $user->id) }}"
+                       role="button">تغيير
+                        كلمة المرور</a>
+
                     <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip"
+                                title="Collapse">
                             <i class="fas fa-minus"></i>
                         </button>
-                        <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                        <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip"
+                                title="Remove">
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
@@ -44,7 +58,7 @@
                                                    placeholder="اكتب الاسم ..."
                                                    aria-describedby="helpId" value="{{ $user->name }}">
                                             @error('name')
-                                                <span class="invalid-feedback" role="alert">
+                                            <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
@@ -75,33 +89,6 @@
                                             <label for="image">الصوره</label>
                                             <input type="file" class="form-control-file" name="image" id="image"
                                                    aria-describedby="fileHelpId">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="password">كلمة المرور</label>
-                                            <input type="password" name="password" id="password"
-                                                   class="form-control @error('password') is-invalid @enderror"
-                                                   placeholder="اكتب كلمة المرور ..."
-                                                   aria-describedby="helpId"
-                                            >
-                                            @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="password_confirmation">تأكيد كلمة المرور</label>
-                                            <input type="password" name="password_confirmation" id="password_confirmation"
-                                                   class="form-control @error('password_confirmation') is-invalid @enderror"
-                                                   placeholder="تأكيد كلمة المرور ..." aria-describedby="helpId"
-                                            >
-                                            @error('password_confirmation')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
                                         </div>
 
                                         <div class="form-group text-center mt-4 mb-0">

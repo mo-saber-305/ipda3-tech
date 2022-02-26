@@ -33,7 +33,7 @@
                     <div class="card text-center py-5 px-sm-3 hvr-glow">
                         <div class="header-card d-flex justify-content-center mb-4">
                             <div class="col-sm-12 col-md-10 col-lg-7">
-                                <img class="card-img-top hvr-glow" src="{{ asset('storage/' . $article->image) }}" height="250">
+                                <img class="card-img-top hvr-glow" src="{{ asset($article->image) }}" height="250">
                             </div>
                         </div>
                         <h4 class="card-title mb-0">{{ $article->content }}</h4>

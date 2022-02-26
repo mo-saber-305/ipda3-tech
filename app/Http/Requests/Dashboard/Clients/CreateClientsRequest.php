@@ -25,6 +25,7 @@ class CreateClientsRequest extends FormRequest
     {
         return [
             'name' => 'required|unique:clients',
+            'url' => 'required',
             'image' => 'required|image|mimes:jpeg,png,bmp,gif,svg,webp',
         ];
     }
@@ -39,6 +40,7 @@ class CreateClientsRequest extends FormRequest
         return [
             'name.required' => 'يرجي ادخال اسم العميل',
             'name.unique' => 'تم استخدام هذا الاسم من قبل من فضلك ضع اسما مخلتفا',
+            'url.required' => 'يرجي ادخال رابط الموقع',
             'image.required' => 'يرجي ادخال صورة العميل',
             'image.image' => 'يجب ان يكون الملف عباره عن صوره',
         ];

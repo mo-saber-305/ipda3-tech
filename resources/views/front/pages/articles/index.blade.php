@@ -5,6 +5,7 @@
         .news {
             padding: 0;
         }
+
         .news .articles {
             padding: 50px 0;
             background: url("{{ asset('images/articles.jpg') }}") no-repeat;
@@ -24,11 +25,13 @@
                     @foreach ($articles as $article)
                         <div class="col-md-5">
                             <div class="card hvr-glow">
-                                <img class="card-img-top" src="{{ asset('storage/' . $article->image) }}" alt="">
+                                <img class="card-img-top" src="{{ asset($article->image) }}" alt="">
                                 <div class="card-body">
                                     <h4 class="card-title">{{ $article->title }}</h4>
                                     <div class="news-action d-flex justify-content-between">
-                                        <a class="btn btn-lg hvr-wobble-top" href="{{ route('front.articles.show', $article->id) }}" role="button">اقرأ الأن</a>
+                                        <a class="btn btn-lg hvr-wobble-top"
+                                           href="{{ route('front.articles.show', $article->id) }}" role="button">اقرأ
+                                            الأن</a>
                                         <div>
                                             <span class="text-muted">{{ $article->views }}</span>
                                             <i class="fas fa-eye"></i>

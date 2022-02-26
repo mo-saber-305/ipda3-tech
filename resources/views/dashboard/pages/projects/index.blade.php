@@ -31,19 +31,21 @@
                         <h3 class="card-title">مشاريع ابداع تك</h3>
 
                         <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip"
+                                    title="Collapse">
                                 <i class="fas fa-minus"></i>
                             </button>
-                            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip"
+                                    title="Remove">
                                 <i class="fas fa-times"></i>
                             </button>
                         </div>
                     </div>
                     <div class="card-body">
-                        @include("dashboard.includes.messages")
                         @if(count($projects))
                             @if (auth()->user()->hasPermission('create-projects'))
-                                <a class="btn btn-primary mb-3" href="{{ route('dashboard.projects.create') }}" role="button">
+                                <a class="btn btn-primary mb-3" href="{{ route('dashboard.projects.create') }}"
+                                   role="button">
                                     <i class="fas fa-plus"></i>
                                     انشاء مشروع جديد
                                 </a>
@@ -70,7 +72,7 @@
                                             <h5 class="mb-0 text-bold">{{$project->title}}</h5>
                                         </td>
                                         <td class="col-3">
-                                            <img src="{{asset('storage/' .$project->image)}}" alt="...">
+                                            <img src="{{asset($project->image)}}" alt="...">
                                         </td>
                                         <td class="col-3">
                                             <a class="btn btn-primary"
@@ -95,7 +97,8 @@
                                             @endif
 
                                             @if (auth()->user()->hasPermission('delete-projects'))
-                                                <form action="{{ route('dashboard.projects.destroy', $project->id) }}" method="post" class="mb-0">
+                                                <form action="{{ route('dashboard.projects.destroy', $project->id) }}"
+                                                      method="post" class="mb-0">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">
@@ -121,7 +124,8 @@
                                 </h3>
 
                                 @if (auth()->user()->hasPermission('create-projects'))
-                                    <a class="btn btn-primary" href="{{ route('dashboard.projects.create') }}" role="button">
+                                    <a class="btn btn-primary" href="{{ route('dashboard.projects.create') }}"
+                                       role="button">
                                         <i class="fas fa-plus"></i>
                                         انشاء مشروع جديد
                                     </a>

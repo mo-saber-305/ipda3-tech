@@ -6,9 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\Clients\CreateClientsRequest;
 use App\Http\Requests\Dashboard\Clients\EditClientsRequest;
 use App\Models\Client;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class ClientsController extends Controller
 {
@@ -19,7 +18,7 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        $clients = Client::latest()->paginate();
+        $clients = Client::latest()->paginate(10);
         return view('dashboard.pages.clients.index', compact('clients'));
     }
 
@@ -36,14 +35,19 @@ class ClientsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(CreateClientsRequest $request)
     {
+        $image = $request->image->hashName();
+        $path = public_path() . '/images/clients';
+        $request->file('image')->move($path, $image);
+
         Client::create([
             'name' => $request->input('name'),
-            'image' => $request->file('image')->store('images/clients', 'public'),
+            'url' => $request->input('url'),
+            'image' => "images/clients/$image",
             'user_id' => Auth::user()->id,
         ]);
 
@@ -55,7 +59,7 @@ class ClientsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Client  $client
+     * @param \App\Models\Client $client
      * @return \Illuminate\Http\Response
      */
     public function show(Client $client)
@@ -66,7 +70,7 @@ class ClientsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Client  $client
+     * @param \App\Models\Client $client
      * @return \Illuminate\Http\Response
      */
     public function edit(Client $client)
@@ -77,18 +81,21 @@ class ClientsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Client  $client
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Client $client
      * @return \Illuminate\Http\Response
      */
     public function update(EditClientsRequest $request, Client $client)
     {
-        $data = $request->validated();
+        $data = $request->except('image');
 
         if ($request->hasFile('image')) {
-            $image = $request->image->store('images/clients', 'public');
-            Storage::disk('public')->delete($client->image);
-            $data['image'] = $image;
+            File::delete(public_path($client->image));
+            $folder = 'images\clients';
+            $path = public_path($folder);
+            $image = $request->image->hashName();
+            $request->file('image')->move($path, $image);
+            $data['image'] = "$folder/$image";
         }
 
         $client->update($data);
@@ -101,13 +108,13 @@ class ClientsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Client  $client
+     * @param \App\Models\Client $client
      * @return \Illuminate\Http\Response
      */
     public function destroy(Client $client)
     {
         //delete client image form storage
-        Storage::disk('public')->delete($client->image);
+        File::delete(public_path($client->image));
 
         $client->delete();
 

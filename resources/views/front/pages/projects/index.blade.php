@@ -29,7 +29,7 @@
                         <div class="col-xs-12 col-md-6 col-lg-4">
                             <a href="{{ route('front.projects.show', $project->id) }}">
                                 <div class="card hvr-grow-shadow">
-                                    <img class="card-img-top" src="{{ asset('storage/' . $project->image) }}" alt="">
+                                    <img class="card-img-top" src="{{ asset($project->image) }}" alt="">
                                     <div class="card-body">
                                         <h4 class="card-title">{{ $project->title }}</h4>
                                     </div>
@@ -41,6 +41,7 @@
             </div>
 
             <!--Start Pagination-->
+
             <div class="container">
                 <div class="row justify-content-center">
                     {{ $projects->links() }}

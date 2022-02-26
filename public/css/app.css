@@ -1,93 +1,97 @@
 body,
 html {
-  text-transform: capitalize;
-  font-family: "Cairo", sans-serif;
+    text-transform: capitalize;
+    font-family: "Cairo", sans-serif;
 }
 
 .navbar {
-  padding: 1rem;
+    padding: 1rem;
 }
 
 .navbar .navbar-nav .nav-link {
-  font-size: 17px;
-  font-weight: 600;
+    font-size: 17px;
+    font-weight: 600;
 }
 
 .navbar .navbar-nav .user-menu .user-image {
-  height: 40px;
-  margin-left: 5px;
-  width: 40px;
+    height: 40px;
+    margin-left: 5px;
+    width: 40px;
 }
 
 .navbar .navbar-nav .user-menu li.user-header {
-  background: #243142;
-  color: #fff;
+    background: #243142;
+    color: #fff;
 }
 
 .main-sidebar .brand-link .brand-image {
-  margin-left: 0.5rem;
-  margin-right: 0.8rem;
+    margin-left: 0.5rem;
+    margin-right: 0.8rem;
 }
 
 .main-sidebar .sidebar .user-panel .image {
-  padding-right: 0.8rem;
-  padding-left: 5px;
+    padding-right: 0.8rem;
+    padding-left: 5px;
 }
 
 .main-sidebar .sidebar .nav-sidebar > .nav-item .nav-icon {
-  margin-left: 0.2rem;
-  margin-right: 0;
+    margin-left: 0.2rem;
+    margin-right: 0;
 }
 
 .content-wrapper .content-header h1 {
-  text-align: left;
+    text-align: left;
 }
 
 .main-content-card .card-header {
-  color: #ffffff;
-  background-color: #243142;
+    color: #ffffff;
+    background-color: #243142;
 }
 
 .main-content-card .card-header .card-title {
-  float: right;
-  font-size: 25px;
-  margin-bottom: 0;
+    float: right;
+    font-size: 25px;
+    margin-bottom: 0;
 }
 
 .main-content-card .card-tools {
-  float: left;
+    float: left;
 }
 
 .main-content-card .card-tools .btn-tool {
-  color: #ffffff;
+    color: #ffffff;
 }
 
 .content form .form-control.is-invalid {
-  padding-right: 12px;
+    padding-right: 12px;
 }
 
 .content .card .card-body .table tbody tr > td {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .content .card .card-body .table tbody tr > td img {
-  max-width: 100%;
-  height: 100px;
+    max-width: 100%;
+    height: 100px;
 }
 
 .special-heading {
-  padding-top: 40px;
-  position: relative;
+    padding-top: 40px;
+    position: relative;
 }
 
 .special-heading h2:before {
-  content: "";
-  position: absolute;
-  height: 50px;
-  top: 37px;
-  right: 0;
-  border-right: 4px solid #3aade6;
+    content: "";
+    position: absolute;
+    height: 50px;
+    top: 37px;
+    right: 0;
+    border-right: 4px solid #3aade6;
 }
 
+.alert-dismissible.message .close {
+    left: 0 !important;
+    width: fit-content
+}
