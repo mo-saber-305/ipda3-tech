@@ -16,6 +16,7 @@
         .content .index-article .card .card-body .table tbody tr > td .btn-info {
             margin-left: 10px;
         }
+
         .content .index-article .card .card-body .table tbody tr > td .badge {
             padding: 7px 10px;
         }
@@ -32,15 +33,16 @@
                     <div class="card-header">
                         <h3 class="card-title">مقالات ابداع تك المحذوفه</h3>
                         <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip"
+                                    title="Collapse">
                                 <i class="fas fa-minus"></i></button>
-                            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip"
+                                    title="Remove">
                                 <i class="fas fa-times"></i></button>
                         </div>
                     </div>
 
                     <div class="card-body">
-                        @include("dashboard.includes.messages")
                         @if(count($trashes))
                             <div class="table-responsive">
                                 <table class="table table-bordered text-center mb-0">
@@ -61,16 +63,21 @@
                                                 <h5 class="mb-0 text-bold">{{$trash->title}}</h5>
                                             </td>
                                             <td class="col-sm-2">
-                                                <img src="{{asset('storage/' .$trash->image)}}" alt="..." style="max-width: 100%" height="80">
+                                                <img src="{{asset($trash->image)}}" alt="..." style="max-width: 100%"
+                                                     height="80">
                                             </td>
-                                            <td class="col-sm-2"><span class="badge bg-dark">{{$trash->views}}</span></td>
+                                            <td class="col-sm-2"><span class="badge bg-dark">{{$trash->views}}</span>
+                                            </td>
                                             <td class="col-sm-3">
-                                                <a class="btn btn-info" href="{{ route('dashboard.trashed.restore', $trash->id) }}" role="button"
+                                                <a class="btn btn-info"
+                                                   href="{{ route('dashboard.trashed.restore', $trash->id) }}"
+                                                   role="button"
                                                    data-tooltip="tooltip" data-placement="top" title="استعادة المقاله">
-                                                    <i class="fas fa-edit"></i>
+                                                    <i class="fas fa-undo"></i>
                                                 </a>
 
-                                                <form action="{{ route('dashboard.articles.destroy', $trash->id) }}" method="post" class="mb-0">
+                                                <form action="{{ route('dashboard.articles.destroy', $trash->id) }}"
+                                                      method="post" class="mb-0">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger" data-tooltip="tooltip"

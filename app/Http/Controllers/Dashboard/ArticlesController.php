@@ -6,9 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\Articles\CreateArticlesRequest;
 use App\Http\Requests\Dashboard\Articles\EditArticleRequest;
 use App\Models\Article;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
 class ArticlesController extends Controller
@@ -45,16 +44,19 @@ class ArticlesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(CreateArticlesRequest $request)
     {
-
+        $image = $request->file('image')->hashName();
+        $folder = 'images/articles';
+        $path = public_path($folder);
+        $request->file('image')->move($path, $image);
         Article::create([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
-            'image' => $request->file('image')->store('images/articles', 'public'),
+            'image' => "$folder/$image",
             'user_id' => Auth::user()->id,
             'slug' => Str::slug($request->input('title'), '-'),
         ]);
@@ -65,7 +67,7 @@ class ArticlesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Article  $article
+     * @param \App\Models\Article $article
      * @return \Illuminate\Http\Response
      */
     public function show(Article $article)
@@ -76,7 +78,7 @@ class ArticlesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Article  $article
+     * @param \App\Models\Article $article
      * @return \Illuminate\Http\Response
      */
     public function edit(Article $article)
@@ -87,18 +89,22 @@ class ArticlesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Article  $article
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Article $article
      * @return \Illuminate\Http\Response
      */
     public function update(EditArticleRequest $request, Article $article)
     {
         $data = $request->validated();
         $data['slug'] = Str::slug($data['title'], '-');
+
         if ($request->hasFile('image')) {
-            $image = $request->image->store('images/articles','public');
-            Storage::disk('public')->delete($article->image);
-            $data['image'] = $image;
+            $image = $request->file('image')->hashName();
+            $folder = 'images/articles';
+            $path = public_path($folder);
+            $request->file('image')->move($path, $image);
+            File::delete(public_path($article->image));
+            $data['image'] = "$folder/$image";
         }
 
         $article->update($data);
@@ -111,7 +117,7 @@ class ArticlesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Article  $id
+     * @param \App\Models\Article $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -119,11 +125,11 @@ class ArticlesController extends Controller
         $article = Article::withTrashed()->where('id', $id)->firstOrFail();
 
         if ($article->trashed()) {
-            Storage::disk('public')->delete($article->image);
+            File::delete(public_path($article->image));
             $article->forceDelete();
             session()->flash('error', 'تم حذف المقاله بشكل نهائي');
             return redirect(route('dashboard.trashed.index', compact('article')));
-        } else{
+        } else {
             $article->delete();
             session()->flash('error', 'تم حذف المقاله بنجاح وتم وضعها في قائمة المقالات المحذوفه في حال اردت استرجاعه');
             return redirect(route('dashboard.articles.index', compact('article')));
@@ -137,13 +143,13 @@ class ArticlesController extends Controller
         return view('dashboard.pages.articles.trashed', compact('trashes'));
     }
 
-    public function restore($id, Request $request)
+    public function restore($id)
     {
 
-       Article::withTrashed()->where('id', $id)->restore();
+        Article::withTrashed()->where('id', $id)->restore();
 
         session()->flash('success', 'تم استرجاع المقالة بنجاح');
 
-        return redirect(route('dashboard.articles.index'));
+        return redirect(route('dashboard.trashed.index'));
     }
 }

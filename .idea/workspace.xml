@@ -2,167 +2,78 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7b98d74-24c5-45ce-a9b2-0d30ce9b704b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/saveactions_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/ArticleFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/ArticleSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/ClientSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/ProjectImagesSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/ProjectSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/ServiceSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/SettingSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/articles/1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/articles/10.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/articles/11.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/articles/12.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/articles/13.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/articles/14.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/articles/15.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/articles/16.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/articles/17.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/articles/2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/articles/3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/articles/4.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/articles/5.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/articles/6.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/articles/7.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/articles/8.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/articles/9.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/clients/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/clients/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/clients/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/clients/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/clients/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/cover/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/cover/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/cover/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/cover/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/cover/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/cover/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/cover/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/cover/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/image/1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/image/2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/image/3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/image/4.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/image/5.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/image/6.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/image/7.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/image/8.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_1_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_1_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_1_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_2_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_2_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_2_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_2_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_3_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_3_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_3_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_4_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_4_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_4_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_5_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_5_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_5_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_6_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_6_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_6_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_7_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_7_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_7_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_8_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_8_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/projects/project_images/project_8_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/services/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/services/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/services/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/services/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/services/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/services/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/settings/footer_image.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/settings/intro_image.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/settings/ipda3_icon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/settings/ipda3_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/settings/ipda3_logo_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/settings/who-are-we.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/users/jkWwq4SiryC4ZzIPOoPSTOlI0D21tWfMp4bmfN5n.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/users/user.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/publicimages/users/aJvvJDR4GkjGnm4eC6kdaWAKUevpFdG8Rg7IFN07.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/ar/auth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/ar/pagination.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/ar/passwords.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/ar/validation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/includes/sidebar.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/pages/users/change_password.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/laravel-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/blade.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/laravel-idea.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/settings/2T3NNVd5yszyS59oeuMOJ8ta1q9gliqSIytOgCIi.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/settings/2dp63nDXt4vGEI2FSA2iSbe71A1Zb8l6qUXbkO9Q.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/settings/30Ooe5TVdRXnLeRaSB8l8QjlP3CgUzdt1B3YGhZe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/settings/4DrspOZSaHCfTUtgYgxvHucHMoht4TOCL7okM6L8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/settings/CTzUZXPc2rmqm6tKmcYE68Z9cxq2nXYMkm15W4kX.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/settings/ZmEACUs67E04Evm8MXfabMKKwoHtj76uuFCxdE5i.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/settings/fKMNv6cmklVwsgIPYymrNrndlg8z7OxkypFcd8Da.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/settings/n8xpWX5PSVF99mNSpbhUwt0Lk0MqD6KvKiKFZgf7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/settings/oOV4lm8PhcvsiHMUiyOG5odEphOhl7o6XWwURM86.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/settings/zWNIWRSCN8nZGc4LhSPTLKtJrEuZfjyBS7FMO1lt.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ipda3-website.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ipda3-website.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Dashboard/ClientsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Dashboard/ClientsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Dashboard/ProjectsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Dashboard/ProjectsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Dashboard/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Dashboard/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Dashboard/Clients/CreateClientsRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Dashboard/Clients/CreateClientsRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Dashboard/Clients/EditClientsRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Dashboard/Clients/EditClientsRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Client.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Photo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Photo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Dashboard/ArticlesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Dashboard/ArticlesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Dashboard/PagesController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Dashboard/ServicesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Dashboard/ServicesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Dashboard/SettingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Dashboard/SettingsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Dashboard/Settings/EditSettingsRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Dashboard/Settings/EditSettingsRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Setting.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Setting.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_08_164426_create_clients_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_08_164426_create_clients_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_08_164426_create_photos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_08_164426_create_photos_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_08_164426_create_projects_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_08_164426_create_projects_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_08_164426_create_services_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_06_08_164426_create_services_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_08_164426_create_settings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2013_06_08_164426_create_settings_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/front/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/front/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/footer-vec.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/ipda3-logo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/who-are-we.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/includes/messages.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/includes/messages.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/includes/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/includes/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/layouts/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/layouts/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/pages/clients/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/pages/clients/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/pages/clients/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/pages/clients/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/pages/projects/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/pages/projects/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/pages/projects/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/pages/projects/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/pages/projects/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/pages/projects/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/pages/users/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/pages/users/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/includes/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/includes/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/includes/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/includes/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/pages/articles/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/pages/articles/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/pages/articles/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/pages/articles/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/laratrust_seeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/laratrust_seeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_06_08_164426_create_pages_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/includes/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/includes/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/pages/articles/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/pages/articles/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/pages/articles/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/pages/articles/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/pages/articles/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/pages/articles/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/pages/articles/trashed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/pages/articles/trashed.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/pages/pages/form.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/pages/pages/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/pages/services/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/pages/services/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/pages/services/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/pages/services/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/pages/settings/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/pages/settings/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/pages/users/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/pages/users/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/pages/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/pages/users/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/pages/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/pages/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/pages/projects/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/pages/projects/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/pages/projects/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/pages/projects/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings" doNotAsk="true">
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="1cqrwlssD4obAitfT70J36bzSjH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/dashboard/pages/users" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../dashboard-master" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.customizations" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -180,18 +91,6 @@
       <recent name="E:\projects\laravel-projects\ipda3-website\storage\app\public\images\users" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
@@ -201,6 +100,7 @@
   <component name="ServiceViewManager">
     <option name="showServicesTree" value="false" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -251,21 +151,32 @@
       <workItem from="1645708284593" duration="12048000" />
       <workItem from="1645738682746" duration="1834000" />
       <workItem from="1645792909140" duration="13020000" />
-      <workItem from="1645879471982" duration="12776000" />
+      <workItem from="1645879471982" duration="13094000" />
+      <workItem from="1645914288500" duration="790000" />
+      <workItem from="1645987573742" duration="7015000" />
+      <workItem from="1647527365860" duration="9259000" />
+      <workItem from="1647557914084" duration="1333000" />
+      <workItem from="1647605460972" duration="2332000" />
     </task>
+    <task id="LOCAL-00001" summary="update projects and clients in site and dashboard">
+      <created>1645913798946</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1645913798946</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -273,5 +184,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="update projects and clients in site and dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="update projects and clients in site and dashboard" />
   </component>
 </project>

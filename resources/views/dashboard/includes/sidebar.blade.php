@@ -55,14 +55,6 @@
                                 </a>
                             </li>
                         @endif
-                        @if (auth()->user()->hasPermission('read-pages'))
-                            <li class="nav-item">
-                                <a href="{{ route('dashboard.pages.index') }}" class="nav-link">
-                                    <i class="fas fa-pager nav-icon"></i>
-                                    <p>الصفحات</p>
-                                </a>
-                            </li>
-                        @endif
 
                         @if (auth()->user()->hasPermission('read-users'))
                             <li class="nav-item">
@@ -76,7 +68,7 @@
                 </li>
                 @if (auth()->user()->hasPermission('read-settings'))
                     <li class="nav-item">
-                        <a href="{{ route('dashboard.settings.index') }}" class="nav-link">
+                        <a href="{{ route('dashboard.settings.edit', 1) }}" class="nav-link">
                             <i class="nav-icon fas fa-cog"></i>
                             <p>الاعدادات</p>
                         </a>

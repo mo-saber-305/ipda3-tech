@@ -9,6 +9,6 @@ class Setting extends Model
 
     protected $table = 'settings';
     public $timestamps = true;
-    protected $fillable = array('header_logo', 'footer_logo', 'slogan', 'intro_image', 'facebook', 'whatsapp', 'linkedin', 'twitter', 'instagram');
+    protected $fillable = array('site_icon', 'header_logo', 'footer_logo', 'footer_image', 'slogan_image', 'slogan_content', 'intro_image', 'intro_content', 'facebook', 'whatsapp', 'linkedin', 'twitter', 'instagram', 'address');
 
 }

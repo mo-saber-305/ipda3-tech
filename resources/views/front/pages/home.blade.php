@@ -80,9 +80,10 @@
                                 <img class="card-img-top" src="{{ asset($service->image) }}">
                                 <div class="card-body text-center">
                                     <h4 class="card-title">
-                                        <a href="#">{{ $service->title }}</a>
+                                        <a href="javascript:void(0);">{{ $service->title }}</a>
                                     </h4>
-                                    <p class="card-text">{{ Str::limit($service->content, 100) }}</p>
+                                    <p class="card-text" data-toggle="tooltip" data-placement="top"
+                                       title="{{$service->content}}">{{ Str::limit($service->content, 100) }}</p>
                                 </div>
                             </div>
                         </div>
@@ -197,3 +198,12 @@
 
     <!--End Our Clients-->
 @stop
+
+
+@section('script')
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+@endsection

@@ -18,7 +18,6 @@ return [
             'projects' => 'c,r,u,d',
             'clients' => 'c,r,u,d',
             'services' => 'c,r,u,d',
-            'pages' => 'c,r,u,d',
             'settings' => 'r,u',
         ],
         'admin' => [],

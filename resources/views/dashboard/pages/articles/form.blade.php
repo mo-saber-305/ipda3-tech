@@ -24,10 +24,12 @@
                     <h3 class="card-title">{{ isset($article) ? 'تعديل المقالة' : 'انشاء مقالة جديده' }}</h3>
 
                     <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip"
+                                title="Collapse">
                             <i class="fas fa-minus"></i>
                         </button>
-                        <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                        <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip"
+                                title="Remove">
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
@@ -37,9 +39,10 @@
                         <div class="col-9">
                             <div class="card mb-0">
                                 <div class="card-body">
-                                    <form action="{{ isset($article) ? route('dashboard.articles.update', $article->id) : route('dashboard.articles.store') }}"
-                                          method="post"
-                                          enctype="multipart/form-data"
+                                    <form
+                                        action="{{ isset($article) ? route('dashboard.articles.update', $article->id) : route('dashboard.articles.store') }}"
+                                        method="post"
+                                        enctype="multipart/form-data"
                                     >
                                         @csrf
                                         @isset($article)
@@ -53,7 +56,7 @@
                                                    aria-describedby="helpId"
                                                    value="{{ isset($article) ? $article->title : old('title') }}">
                                             @error('title')
-                                                <span class="invalid-feedback" role="alert">
+                                            <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
@@ -66,7 +69,7 @@
                                                 placeholder="اكتب المحتوي ..."
                                             >{{ isset($article) ? $article->content : old('content') }}</textarea>
                                             @error('content')
-                                                <span class="invalid-feedback" role="alert">
+                                            <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
@@ -77,20 +80,23 @@
                                                    class="form-control-file @error('image') is-invalid @enderror"
                                                    name="image" id="image"
                                                    value="{{ old('image') }}"
-                                                   placeholder="اختار صورة للمقال" aria-describedby="fileHelpId" multiple>
+                                                   placeholder="اختار صورة للمقال" aria-describedby="fileHelpId"
+                                                   multiple>
                                             @error('image')
-                                                <span class="invalid-feedback" role="alert">
+                                            <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
                                         </div>
                                         @isset($article)
                                             <div class="form-group text-center">
-                                                <img src="{{ asset('storage/' .$article->image) }}" alt="..." style="max-width: 100%" height="200">
+                                                <img src="{{ asset($article->image) }}" alt="..."
+                                                     style="max-width: 100%" height="200">
                                             </div>
                                         @endisset
                                         <div class="form-group text-center">
-                                            <button type="submit" class="btn btn-primary @isset($article) btn-success @endisset">
+                                            <button type="submit"
+                                                    class="btn btn-primary @isset($article) btn-success @endisset">
                                                 {{ isset($article) ? 'تعديل المقاله' : 'انشاء المقالة' }}
                                             </button>
                                         </div>

@@ -2,6 +2,7 @@
 
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -13,8 +14,8 @@ class UserSeeder extends Seeder
     public function run()
     {
         $user = User::create([
-            'name' => 'Mo Saber',
-            'email' => 'mo.saber305@yahoo.com',
+            'name' => 'super admin',
+            'email' => 'admin@demo.com',
             'description' => 'full stack developer',
             'password' => Hash::make('mo saber')
         ]);

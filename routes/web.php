@@ -42,10 +42,7 @@ Route::prefix('dashboard')->namespace('Dashboard')->name('dashboard.')->middlewa
     Route::resource('services', 'ServicesController');
 
     // Settings Route
-    Route::resource('settings', 'SettingsController')->only(['edit', 'update', 'index']);
-
-    // Pages Route
-    Route::resource('pages', 'PagesController');
+    Route::resource('settings', 'SettingsController')->only(['edit', 'update']);
 
     // Users Route
     Route::resource('users', 'UserController')->except(['show']);

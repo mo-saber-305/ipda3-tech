@@ -35,19 +35,21 @@
                         <h3 class="card-title">خدمات ابداع تك</h3>
 
                         <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip"
+                                    title="Collapse">
                                 <i class="fas fa-minus"></i>
                             </button>
-                            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip"
+                                    title="Remove">
                                 <i class="fas fa-times"></i>
                             </button>
                         </div>
                     </div>
                     <div class="card-body">
-                        @include("dashboard.includes.messages")
                         @if(count($services))
                             @if (auth()->user()->hasPermission('create-services'))
-                                <a class="btn btn-primary mb-3" href="{{ route('dashboard.services.create') }}" role="button">
+                                <a class="btn btn-primary mb-3" href="{{ route('dashboard.services.create') }}"
+                                   role="button">
                                     <i class="fas fa-plus"></i>
                                     انشاء خدمة جديده
                                 </a>
@@ -79,7 +81,7 @@
                                             <h5 class="mb-0 text-bold">{{ boolval($service->status ) == true ? 'ظاهر' : 'مخفي' }}</h5>
                                         </td>
                                         <td class="col-3">
-                                            <img src="{{asset('storage/' .$service->image)}}" height="100">
+                                            <img src="{{asset($service->image)}}" height="100">
                                         </td>
                                         <td class="col-2">
                                             @if (auth()->user()->hasPermission('update-services'))
@@ -97,7 +99,8 @@
                                             @endif
 
                                             @if (auth()->user()->hasPermission('delete-services'))
-                                                <form action="{{ route('dashboard.services.destroy', $service->id) }}" method="post" class="mb-0">
+                                                <form action="{{ route('dashboard.services.destroy', $service->id) }}"
+                                                      method="post" class="mb-0">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger" data-toggle="tooltip"
@@ -125,7 +128,8 @@
                                 </h3>
 
                                 @if (auth()->user()->hasPermission('create-services'))
-                                    <a class="btn btn-primary" href="{{ route('dashboard.services.create') }}" role="button">
+                                    <a class="btn btn-primary" href="{{ route('dashboard.services.create') }}"
+                                       role="button">
                                         <i class="fas fa-plus"></i>
                                         انشاء خدمة جديد
                                     </a>

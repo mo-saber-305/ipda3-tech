@@ -15,20 +15,24 @@
         .article-show-card {
             border-radius: 30px;
         }
+
         .article-show-card .card-img-top {
             border-radius: 25px;
         }
+
         .article-show-card .card-title {
             line-height: 2.2;
             font-size: 25px;
             color: #233142;
         }
+
         .article-show-card span.badge {
             width: fit-content;
             margin-right: auto;
             padding: 7px 10px;
             font-size: 18px;
         }
+
         .article-show-card span.badge i {
             padding-right: 4px;
         }
@@ -46,9 +50,11 @@
                         <h3 class="card-title">تفاصيل المقالة</h3>
 
                         <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip"
+                                    title="Collapse">
                                 <i class="fas fa-minus"></i></button>
-                            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip"
+                                    title="Remove">
                                 <i class="fas fa-times"></i></button>
                         </div>
                     </div>
@@ -58,7 +64,8 @@
                                 <div class="card article-show-card text-center my-4 py-5 px-sm-3 hvr-glow">
                                     <div class="header-card d-flex justify-content-center mb-4">
                                         <div class="col-sm-12 col-md-10 col-lg-7">
-                                            <img class="card-img-top hvr-glow" src="{{ asset('storage/' .$article->image) }}" alt="...">
+                                            <img class="card-img-top hvr-glow" src="{{ asset($article->image) }}"
+                                                 alt="...">
                                         </div>
                                     </div>
                                     <h3 class="font-weight-bold">{{ $article->title }}</h3>

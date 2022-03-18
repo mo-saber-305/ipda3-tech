@@ -6,9 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\Services\CreateServicesRequest;
 use App\Http\Requests\Dashboard\Services\EditSevicesRequest;
 use App\Models\Service;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
 class ServicesController extends Controller
@@ -45,29 +44,33 @@ class ServicesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(CreateServicesRequest $request)
     {
-       Service::create([
-           'title' => $request->input('title'),
-           'content' => $request->input('content'),
-           'status' => $request->get('status'),
-           'image' => $request->image->store('images/services', 'public'),
-           'user_id' => Auth::user()->id,
-           'slug' => Str::slug($request->input('title'), '-')
-       ]);
+        $image = $request->file('image')->hashName();
+        $folder = 'images/services';
+        $path = public_path($folder);
+        $request->file('image')->move($path, $image);
+        Service::create([
+            'title' => $request->input('title'),
+            'content' => $request->input('content'),
+            'status' => $request->get('status'),
+            'image' => "$folder/$image",
+            'user_id' => Auth::user()->id,
+            'slug' => Str::slug($request->input('title'), '-')
+        ]);
 
-       session()->flash('success', 'تم انشاء الخدمة بنجاح');
+        session()->flash('success', 'تم انشاء الخدمة بنجاح');
 
-       return redirect(route('dashboard.services.index'));
+        return redirect(route('dashboard.services.index'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Service  $service
+     * @param \App\Models\Service $service
      * @return \Illuminate\Http\Response
      */
     public function show(Service $service)
@@ -78,7 +81,7 @@ class ServicesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Service  $service
+     * @param \App\Models\Service $service
      * @return \Illuminate\Http\Response
      */
     public function edit(Service $service)
@@ -89,8 +92,8 @@ class ServicesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Service  $service
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Service $service
      * @return \Illuminate\Http\Response
      */
     public function update(EditSevicesRequest $request, Service $service)
@@ -100,9 +103,12 @@ class ServicesController extends Controller
         $data['slug'] = Str::slug($data['title'], '-');
 
         if ($request->hasFile('image')) {
-            Storage::disk('public')->delete($service->image);
-            $image = $request->file('image')->store('images/services', 'public');
-            $data['image'] = $image;
+            $image = $request->file('image')->hashName();
+            $folder = 'images/services';
+            $path = public_path($folder);
+            $request->file('image')->move($path, $image);
+            File::delete(public_path($service->image));
+            $data['image'] = "$folder/$image";
         }
 
         $service->update($data);
@@ -115,12 +121,12 @@ class ServicesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Service  $service
+     * @param \App\Models\Service $service
      * @return \Illuminate\Http\Response
      */
     public function destroy(Service $service)
     {
-        Storage::disk('public')->delete($service->image);
+        File::delete(public_path($service->image));
         $service->delete();
 
         session()->flash('error', 'تم حذف الخدمة بنجاح');

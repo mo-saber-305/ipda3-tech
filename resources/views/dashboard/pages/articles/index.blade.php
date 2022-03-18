@@ -35,18 +35,20 @@
                         <h3 class="card-title">مقالات ابداع تك</h3>
 
                         <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip"
+                                    title="Collapse">
                                 <i class="fas fa-minus"></i></button>
-                            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip"
+                                    title="Remove">
                                 <i class="fas fa-times"></i></button>
                         </div>
                     </div>
                     <div class="card-body">
-                        @include("dashboard.includes.messages")
                         @if(count($articles))
                             <div class="d-flex justify-content-between mb-4">
                                 @if (auth()->user()->hasPermission('create-articles'))
-                                    <a class="btn btn-primary" href="{{ route('dashboard.articles.create') }}" role="button">
+                                    <a class="btn btn-primary" href="{{ route('dashboard.articles.create') }}"
+                                       role="button">
                                         <i class="fas fa-plus"></i>
                                         انشاء مقاله جديده
                                     </a>
@@ -57,7 +59,8 @@
                                     </button>
                                 @endif
                                 @if (auth()->user()->hasPermission('delete-articles'))
-                                    <a class="btn btn-info text-light" href="{{ route('dashboard.trashed.index') }}" role="button">
+                                    <a class="btn btn-info text-light" href="{{ route('dashboard.trashed.index') }}"
+                                       role="button">
                                         <i class="fas fa-trash"></i>
                                         المقالات المحذوفه
                                     </a>
@@ -87,9 +90,10 @@
                                                 <h5 class="mb-0 text-bold">{{$article->title}}</h5>
                                             </td>
                                             <td class="col-sm-2">
-                                                <img src="{{asset('storage/' .$article->image)}}" alt="...">
+                                                <img src="{{asset($article->image)}}" alt="...">
                                             </td>
-                                            <td class="col-sm-2"><span class="badge bg-dark">{{$article->views}}</span></td>
+                                            <td class="col-sm-2"><span class="badge bg-dark">{{$article->views}}</span>
+                                            </td>
                                             <td class="col-sm-3">
                                                 <a class="btn btn-primary"
                                                    href="{{ route('dashboard.articles.show', $article->id) }}"
@@ -112,10 +116,13 @@
                                                 @endif
 
                                                 @if (auth()->user()->hasPermission('delete-articles'))
-                                                    <form action="{{ route('dashboard.articles.destroy', $article->id) }}" method="post">
+                                                    <form
+                                                        action="{{ route('dashboard.articles.destroy', $article->id) }}"
+                                                        method="post">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger" data-toggle="tooltip"
+                                                        <button type="submit" class="btn btn-danger"
+                                                                data-toggle="tooltip"
                                                                 data-placement="top" title="حذف المقاله">
                                                             <i class="fas fa-trash"></i>
                                                         </button>
@@ -139,7 +146,8 @@
                                     لا توجد مقالات حاليا
                                 </h3>
                                 @if (auth()->user()->hasPermission('create-articles'))
-                                    <a class="btn btn-primary ml-3" href="{{ route('dashboard.articles.create') }}" role="button">
+                                    <a class="btn btn-primary ml-3" href="{{ route('dashboard.articles.create') }}"
+                                       role="button">
                                         <i class="fas fa-plus"></i>
                                         انشاء مقالة جديده
                                     </a>
@@ -150,7 +158,8 @@
                                     </button>
                                 @endif
                                 @if (auth()->user()->hasPermission('delete-articles'))
-                                    <a class="btn btn-info text-light" href="{{ route('dashboard.trashed.index') }}" role="button">
+                                    <a class="btn btn-info text-light" href="{{ route('dashboard.trashed.index') }}"
+                                       role="button">
                                         <i class="fas fa-trash"></i>
                                         المقالات المحذوفه
                                     </a>
